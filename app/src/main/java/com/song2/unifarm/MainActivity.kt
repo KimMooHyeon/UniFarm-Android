@@ -9,6 +9,7 @@ import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -17,8 +18,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)  // 왼쪽 버튼 사용 여부 true
-        supportActionBar!!.setHomeAsUpIndicator(R.drawable.bt_more)  // 왼쪽 버튼 이미지 설정
 
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -60,18 +59,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> {
+                startActivity<SettingActivity>()
+            }
+            R.id.nav_calendar -> {
+                startActivity<SettingActivity>()
 
             }
             R.id.nav_calendar -> {
-
-            }
-            R.id.nav_calendar -> {
+                startActivity<SettingActivity>()
 
             }
             R.id.nav_notice -> {
+                startActivity<SettingActivity>()
 
             }
             R.id.nav_setting -> {
+                startActivity<SettingActivity>()
 
             }
         }

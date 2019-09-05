@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SettingActivity">
+    <RelativeLayout
+            android:layout_marginTop="120dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <ImageView
+                android:layout_centerInParent="true"
+                android:src="@drawable/box_sorry"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="38sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="5sp"
+                android:text="서비스 준비중"
+                android:textStyle="bold"/>
+    </RelativeLayout>
+
+    <ImageView
+            android:layout_marginTop="80dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:src="@drawable/img_sorry"/>
+
+    <TextView
+            android:layout_marginVertical="16dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:lineSpacingExtra="2sp"
+            tools:text="이용에 불편을 드려 죄송합니다."/>
+
+    <RelativeLayout
+            android:id="@+id/rl_setting_act_back_btn"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView 
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                   android:src="@drawable/bt_return"/>
+        <TextView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:lineSpacingExtra="3sp"
+                android:gravity="center_horizontal"
+                android:text="돌아가기"
+        />
+    </RelativeLayout>
+
+</LinearLayout>
