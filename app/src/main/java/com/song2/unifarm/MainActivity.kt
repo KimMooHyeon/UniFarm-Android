@@ -6,9 +6,13 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
 import android.support.v4.widget.DrawerLayout
 import android.support.design.widget.NavigationView
+import android.support.v4.widget.ImageViewCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
+import android.view.MenuInflater
+import android.widget.ImageView
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -19,7 +23,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -28,6 +31,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setTitle("")
         navView.setNavigationItemSelectedListener(this)
+
+        iv_main_act_btn_reward.setOnClickListener {
+            startActivity<RewordActivity>()
+        }
+
+        rl_main_act_comming_act.setOnClickListener {
+            startActivity<DetailedActivity>()
+        }
+
     }
 
     override fun onBackPressed() {
@@ -39,34 +51,35 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    //뷰 연결
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
-/*    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+    //클릭
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.menu_search -> startActivity<SearchActivity>()
         }
-    }*/
+
+        return super.onOptionsItemSelected(item)
+    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_home -> {
-                startActivity<SettingActivity>()
+            R.id.nav_collect_view -> {
+                startActivity<CollectViewActivity>()
             }
-            R.id.nav_calendar -> {
+            R.id.nav_bookmark -> {
                 startActivity<SettingActivity>()
 
             }
             R.id.nav_calendar -> {
-                startActivity<SettingActivity>()
+                startActivity<KotlinCalendar>()
 
             }
             R.id.nav_notice -> {

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent" android:layout_height="60dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/cv_comming_circle"
+                android:layout_width="18dp"
+                android:src="#eb4985"
+                android:layout_marginLeft="18dp"
+                android:layout_centerVertical="true"
+                android:layout_height="18dp"/>
+        <TextView
+                android:id="@+id/tv_comming_programname"
+                android:layout_marginLeft="52dp"
+                android:layout_marginTop="11dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:fontFamily="@font/oftb"
+                android:includeFontPadding="false"
+                android:textColor="#333333"
+                android:lineSpacingExtra="2sp"
+                android:text="충북 보은 마을재생 프로젝트"
+                />
+    <TextView
+            android:id="@+id/tv_comming_dday"
+            android:layout_marginLeft="52dp"
+            android:layout_below="@+id/tv_comming_programname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/oftb"
+            android:includeFontPadding="false"
+            android:textColor="#333333"
+            android:lineSpacingExtra="2sp"
+            android:text="D-6"
+            />
+    <TextView
+            android:id="@+id/tv_comming_date"
+            android:layout_marginLeft="105dp"
+            android:layout_below="@+id/tv_comming_programname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/oftb"
+            android:includeFontPadding="false"
+            android:textColor="#333333"
+            android:lineSpacingExtra="2sp"
+            android:text="2019.09.14 토"
+            />
+    <TextView
+            android:includeFontPadding="false"
+            android:fontFamily="@font/ofl"
+            android:id="@+id/tv_comming_act_more_btn"
+            android:padding="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginRight="26dp"
+            android:textColor="#484848"
+            android:lineSpacingExtra="2sp"
+            android:gravity="end"
+            android:text="more &gt;"
+            />
+</RelativeLayout>
