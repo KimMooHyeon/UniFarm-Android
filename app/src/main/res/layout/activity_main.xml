@@ -54,9 +54,8 @@
                     android:textSize="15sp"
                     android:textColor="#333333"
                     android:lineSpacingExtra="2sp"
-
                     android:gravity="center_horizontal"
-                    android:text="User"/>
+                    android:text="독고농협"/>
                 <TextView
                         android:id="@+id/tv_main_act_usernim"
                         android:layout_toRightOf="@+id/tv_main_act_user"
@@ -72,6 +71,7 @@
                         android:fontFamily="@font/otfr"
                         android:text=" 님"/>
                 <TextView
+                        android:layout_marginTop="5dp"
                         android:id="@+id/tv_main_act_major"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/tv_main_act_user"
@@ -123,6 +123,7 @@
                                 android:fontFamily="@font/otfeb"
                         />
                         <TextView
+                                android:layout_marginTop="3dp"
                                 android:includeFontPadding="false"
                                 android:fontFamily="@font/otfr"
                                 android:layout_gravity="center"
@@ -160,6 +161,7 @@
                                 android:text="다가오는 활동"
                                 android:textStyle="bold"/>
                         <TextView
+                                android:layout_marginTop="3dp"
                                 android:includeFontPadding="false"
                                 android:fontFamily="@font/otfr"
                                 android:layout_gravity="center"
@@ -198,7 +200,7 @@
                                 android:lineSpacingExtra="2sp"
                                 android:includeFontPadding="false"
                                 android:fontFamily="@font/oftb"
-                                android:text="User"/>
+                                android:text="독고농협"/>
                         <TextView
                                 android:layout_toRightOf="@+id/tv_main_act_recommend_user"
                                 android:id="@+id/tv_main_act_recommend_ment"
@@ -255,7 +257,7 @@
                                     android:text="전공 매칭"/>
 
                             <TextView
-                                    android:layout_marginTop="20dp"
+                                    android:layout_marginTop="22dp"
                                     android:id="@+id/tv_main_act_title"
                                     android:layout_below="@+id/tv_main_act_sort"
                                     android:layout_centerHorizontal="true"
@@ -267,12 +269,12 @@
                                     android:gravity="center_horizontal"
                                     android:includeFontPadding="false"
                                     android:fontFamily="@font/otfeb"
-                                    android:text="고성 초등학교 코팅 교육"/>
+                                    android:text="고성 초등학교 코딩 교육"/>
 
                             <TextView
                                     android:layout_marginBottom="0dp"
                                     android:layout_centerHorizontal="true"
-
+                                    android:layout_marginTop="8dp"
                                     android:id="@+id/tv_main_act_title_hashtag"
                                     android:layout_below="@+id/tv_main_act_title"
                                     android:layout_width="wrap_content"
@@ -309,7 +311,7 @@
                                     android:text="관심 키워드 매칭"/>
 
                             <TextView
-                                    android:layout_marginTop="20dp"
+                                    android:layout_marginTop="22dp"
                                     android:id="@+id/tv_main_act_title_1"
                                     android:layout_below="@+id/tv_main_act_sort_1"
                                     android:layout_centerHorizontal="true"
@@ -327,6 +329,7 @@
                                     android:layout_marginBottom="0dp"
                                     android:layout_centerHorizontal="true"
                                     android:fontFamily="@font/ofl"
+                                    android:layout_marginTop="8dp"
                                     android:includeFontPadding="false"
                                     android:id="@+id/tv_main_act_title_hashtag_1"
                                     android:layout_below="@+id/tv_main_act_title_1"
@@ -406,7 +409,7 @@
                                 android:includeFontPadding="false"
                                 android:textColor="#484848"
                                 android:lineSpacingExtra="4sp"
-                                android:text="01.  "/>
+                                android:text=""/>
 
                         <TextView
                                 android:id="@+id/tv_main_act_now_title"
@@ -414,11 +417,15 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="13sp"
-                                android:fontFamily="@font/ofl"
+                                android:fontFamily="@font/otfeb"
                                 android:includeFontPadding="false"
                                 android:textColor="#696767"
+                                android:ellipsize="marquee"
+                                android:focusable="true"
+                                android:marqueeRepeatLimit="marquee_forever"
+                                android:singleLine="true"
                                 android:lineSpacingExtra="4sp"
-                                android:text="군산 마을 미화 봉사"/>
+                                android:text="1위 군산 마을 미화 봉사   2위 인천 문화마을 벽화 봉사    3위 고성 초등학교 코딩 교육   4위 강릉 감자 체험 봉사    5위 강화 섬마을 체험    6위 속초 갯벌 체험    7위 부산 광안리 오징어잡이 체험    8위 안산시 어린이집 봉사    9위 전국 걷기 장정 활동  10위 강촌 바다 체험 1위 군산 마을 미화 봉사   2위 인천 문화마을 벽화 봉사    3위 고성 초등학교 코딩 교육   4위 강릉 감자 체험 봉사    5위 강화 섬마을 체험    6위 속초 갯벌 체험    7위 부산 광안리 오징어잡이    8위 안산시 어린이집 봉사    9위 전국 걷기 장정   10위 강촌 바다 체험"       />
                     </LinearLayout>
 
 
