@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/tv_calendar_view_text"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/otfeb"
+            android:layout_marginTop="17dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:lineSpacingExtra="3sp"
+            android:gravity="center_horizontal"
+            android:text="마이 캘린더"
+            />
+
+    <ImageView
+            android:id="@+id/iv_collect_view_home"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="19dp"
+            android:src="@drawable/bt_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    <ImageView
+            android:id="@+id/iv_calendar_view_line"
+            android:layout_marginTop="22dp"
+            android:layout_below="@+id/tv_calendar_view_text"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/line_gradation"
+            />
+    <ScrollView
+            android:layout_below="@id/iv_calendar_view_line"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+    <com.applikeysolutions.cosmocalendar.view.CalendarView
+            android:layout_marginTop="20dp"
+            android:id="@+id/calendar_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_calendar_view_line"/>
+    <View
+        android:layout_below="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#f0f0f0"/>
+        <RelativeLayout
+                android:id="@+id/rl_comming_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:paddingLeft="18dp"
+                    android:id="@+id/tv_calendat_comming_text"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/oftb"
+                    android:includeFontPadding="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#333333"
+                    android:lineSpacingExtra="2sp"
+                    android:text="다가오는 활동"
+                    />
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_calendar_comming"
+                android:layout_marginTop="19dp"
+
+                android:layout_below="@+id/tv_calendat_comming_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </RelativeLayout>
+            <View
+                    android:id="@+id/v_calendar_line2"
+                    android:layout_below="@+id/rl_comming_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="#f0f0f0"/>
+            <RelativeLayout
+                    android:id="@+id/rl_end_rv"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                        android:paddingLeft="18dp"
+                        android:id="@+id/tv_calendat_end_text"
+                        android:layout_marginTop="16dp"
+                        android:fontFamily="@font/oftb"
+                        android:includeFontPadding="false"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#333333"
+                        android:lineSpacingExtra="2sp"
+                        android:text="종료된 활동"
+                        />
+
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_calendar_end"
+                        android:layout_marginTop="19dp"
+                        android:layout_below="@+id/tv_calendat_end_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
