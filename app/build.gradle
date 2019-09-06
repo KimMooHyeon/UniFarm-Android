@@ -40,7 +40,7 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.github.applikeysolutions:cosmocalendar:1.0.4'
     implementation 'com.prolificinteractive:material-calendarview:1.4.3'
-    
+
     implementation 'com.github.bumptech.glide:glide:4.9.0'
 
     //구글맵
@@ -51,5 +51,10 @@ dependencies {
 
     implementation 'com.github.applikeysolutions:cosmocalendar:1.0.4'
 
+    //통신
+    implementation 'com.squareup.okhttp3:okhttp:3.8.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 
 }
