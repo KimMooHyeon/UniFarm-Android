@@ -19,9 +19,6 @@ import kotlinx.android.synthetic.main.activity_search.*
 
 class SelectDataListAdapter(val ctx : Context,val selectDateActivity: SelectDateActivity , val calenderListData : ArrayList<String>) : RecyclerView.Adapter<SelectDataListAdapter.Holder>() {
 
-    var searchDbHelper = DBSearchHelper(ctx)
-    lateinit var searchDB: SQLiteDatabase
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder{
         //뷰 인플레이트
         var view : View = LayoutInflater.from(ctx).inflate(R.layout.select_data_item, parent, false)
@@ -33,7 +30,7 @@ class SelectDataListAdapter(val ctx : Context,val selectDateActivity: SelectDate
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
         holder.container.setOnClickListener {
-            selectDateActivity.selectedItem(calenderListData[position])
+            selectDateActivity.selectedItem(calenderListData[position],position)
         }
         holder.calenderListData.text = calenderListData[position]
     }

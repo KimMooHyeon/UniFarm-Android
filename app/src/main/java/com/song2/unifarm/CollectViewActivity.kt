@@ -5,14 +5,25 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.View
 import com.song2.unifarm.Adapter.CollectViewPopularRecyclerViewAdapter
 import com.song2.unifarm.Adapter.RecommendProgramRecyclerViewAdapter
 import com.song2.unifarm.Data.CollectPopularProgramData
 import com.song2.unifarm.Data.RecommendCollectViewData
+import com.song2.unifarm.Network.ApplicationController
+import com.song2.unifarm.Network.GET.GetDetaliedResponse
+import com.song2.unifarm.Network.GET.GetProgramsResonse
+import com.song2.unifarm.Network.GET.ProgramData
+import com.song2.unifarm.Network.NetworkService
 import kotlinx.android.synthetic.main.activity_collect_view.*
+import retrofit2.Call
+import retrofit2.Response
 
 class CollectViewActivity : AppCompatActivity() {
+
+    lateinit var networkService: NetworkService
+
     lateinit var collectViewPopularRecyclerViewAdapter: CollectViewPopularRecyclerViewAdapter
     var CollectdataList: ArrayList<CollectPopularProgramData> = ArrayList()
     lateinit var recommendProgramRecyclerViewAdapter: RecommendProgramRecyclerViewAdapter
@@ -20,6 +31,8 @@ class CollectViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_collect_view)
+
+        networkService = ApplicationController.instance.networkService
 
         iv_collect_view_home.setOnClickListener {
             finish()
@@ -65,5 +78,58 @@ class CollectViewActivity : AppCompatActivity() {
         collectViewPopularRecyclerViewAdapter = CollectViewPopularRecyclerViewAdapter(this, CollectdataList)
         rv_collect_pupular.adapter = collectViewPopularRecyclerViewAdapter
         rv_collect_pupular.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+
+        getProgramsMajorResponse()
+        getProgramsKeywordResponse()
     }
+
+
+    fun getProgramsMajorResponse(){
+        val getProgramsMajorResponse = networkService.getProgramsMajorResponse(
+            "application/json",
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1bmlmYXJtIiwidXNlcl9JZHgiOjl9.2FguegbBxWfn_MvGHkdQzpssoBXh-GWvQQInVZBuZgE")
+
+        getProgramsMajorResponse.enqueue(object : retrofit2.Callback<GetProgramsResonse> {
+            override fun onFailure(call: Call<GetProgramsResonse>, t: Throwable) {
+                Log.e("getProgramsMajorResponse fail", t.toString())
+            }
+
+            override fun onResponse(call: Call<GetProgramsResonse>, response: Response<GetProgramsResonse>) {
+                if (response.isSuccessful) {
+                    val programData: ArrayList<ProgramData> = response.body()!!.data
+                    Log.e("getProgramsMajorResponse success",programData.toString())
+
+                    if (programData != null) {
+                        //리사이클러뷰에 넣기
+
+                    }
+                }
+            }
+        })
+    }
+
+    fun getProgramsKeywordResponse(){
+        val getProgramsKeywordResponse = networkService.getProgramsKeywordResponse(
+            "application/json",
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1bmlmYXJtIiwidXNlcl9JZHgiOjl9.2FguegbBxWfn_MvGHkdQzpssoBXh-GWvQQInVZBuZgE")
+
+        getProgramsKeywordResponse.enqueue(object : retrofit2.Callback<GetProgramsResonse> {
+            override fun onFailure(call: Call<GetProgramsResonse>, t: Throwable) {
+                Log.e("getProgramsKeywordResponse fail", t.toString())
+            }
+
+            override fun onResponse(call: Call<GetProgramsResonse>, response: Response<GetProgramsResonse>) {
+                if (response.isSuccessful) {
+                    val programData: ArrayList<ProgramData> = response.body()!!.data
+                    Log.e("getProgramsKeywordResponse success",programData.toString())
+
+                    if (programData != null) {
+                        //리사이클러뷰에 넣기
+
+                    }
+                }
+            }
+        })
+    }
+
 }

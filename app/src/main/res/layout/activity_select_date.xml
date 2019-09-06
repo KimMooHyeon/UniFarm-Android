@@ -5,12 +5,13 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="68dp"
+        android:background="#4d000000"
         tools:context=".SelectDateActivity">
 
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:layout_marginBottom="68dp"
             android:layout_alignParentBottom="true"
             android:background="#FFFFFF"
             android:orientation="vertical">
@@ -34,7 +35,6 @@
         <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:layout_below="@+id/tv_text_setting_ment"
-                android:background="#FFFFFF"
         >
             <LinearLayout
                     android:layout_width="match_parent"
@@ -104,5 +104,33 @@
         </RelativeLayout>
 
     </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/rl_select_date_act_apply_btn"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_alignParentBottom="true"
+            android:background="#8fc31f">
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                       android:src="@drawable/ic_apply"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/oftb"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:text="신청"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
 
 </RelativeLayout>

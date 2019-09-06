@@ -123,6 +123,7 @@
                                 android:fontFamily="@font/otfeb"
                         />
                         <TextView
+                                android:layout_marginTop="6dp"
                                 android:includeFontPadding="false"
                                 android:fontFamily="@font/otfr"
                                 android:layout_gravity="center"
@@ -160,6 +161,7 @@
                                 android:text="다가오는 활동"
                                 android:textStyle="bold"/>
                         <TextView
+                                android:layout_marginTop="6dp"
                                 android:includeFontPadding="false"
                                 android:fontFamily="@font/otfr"
                                 android:layout_gravity="center"
@@ -237,6 +239,7 @@
                             android:layout_width="wrap_content" android:layout_height="wrap_content">
 
                         <RelativeLayout
+                                android:id="@+id/rl_main_act_major_btn"
                                 android:background="@drawable/box_major"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
@@ -255,7 +258,7 @@
                                     android:text="전공 매칭"/>
 
                             <TextView
-                                    android:layout_marginTop="20dp"
+                                    android:layout_marginTop="25dp"
                                     android:id="@+id/tv_main_act_title"
                                     android:layout_below="@+id/tv_main_act_sort"
                                     android:layout_centerHorizontal="true"
@@ -267,11 +270,12 @@
                                     android:gravity="center_horizontal"
                                     android:includeFontPadding="false"
                                     android:fontFamily="@font/otfeb"
-                                    android:text="고성 초등학교 코팅 교육"/>
+                                    android:text="고성 초등학교 코딩 교육"/>
 
                             <TextView
                                     android:layout_marginBottom="0dp"
                                     android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="4dp"
 
                                     android:id="@+id/tv_main_act_title_hashtag"
                                     android:layout_below="@+id/tv_main_act_title"
@@ -290,6 +294,7 @@
                         <View android:layout_width="1dp" android:layout_height="match_parent"
                               android:background="#8d8d8d"/>
                         <RelativeLayout
+                                android:id="@+id/rl_main_act_keyword_btn"
                                 android:background="@drawable/box_keyword_matching"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
@@ -309,7 +314,7 @@
                                     android:text="관심 키워드 매칭"/>
 
                             <TextView
-                                    android:layout_marginTop="20dp"
+                                    android:layout_marginTop="25dp"
                                     android:id="@+id/tv_main_act_title_1"
                                     android:layout_below="@+id/tv_main_act_sort_1"
                                     android:layout_centerHorizontal="true"
@@ -325,6 +330,7 @@
 
                             <TextView
                                     android:layout_marginBottom="0dp"
+                                    android:layout_marginTop="4dp"
                                     android:layout_centerHorizontal="true"
                                     android:fontFamily="@font/ofl"
                                     android:includeFontPadding="false"

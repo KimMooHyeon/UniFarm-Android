@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+            android:usesCleartextTraffic="true"
             android:name=".Network.ApplicationController"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -40,7 +41,8 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".DetailedActivity"></activity>
         <activity android:name=".SearchActivity"></activity>
-        <activity android:name=".SelectDateActivity"/>
+        <activity android:name=".SelectDateActivity"
+                  android:theme="@style/categoryEditTheme"/>
 
         <!-- 유니팜 모아보기 -->
         <activity android:name=".CollectViewActivity"/>
@@ -52,8 +54,7 @@
         <!-- 리워드 -->
         <activity android:name=".RewordActivity">
         </activity>
-        <activity
-                android:name=".ReviewActivity"
+        <activity android:name=".ReviewActivity"
                 android:theme="@style/categoryEditTheme"/>
 
         <!-- 설정 -->
