@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4d000000"
+        tools:context=".ThanksForReviewActivity">
+<RelativeLayout
+        android:background="@drawable/img_finishreview"
+        android:layout_width="match_parent"
+        android:layout_marginTop="171dp"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+
+            android:id="@+id/rl_finish_whatdoyouthink"
+            android:layout_below="@+id/tv_review_date"
+            android:layout_marginTop="70dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <ImageView
+                android:layout_centerInParent="true"
+                android:src="@drawable/box_sorry"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="38sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="5sp"
+                android:text="감사합니다"
+
+                android:fontFamily="@font/otfeb"
+                android:includeFontPadding="false"/>
+    </RelativeLayout>
+    <TextView
+            android:layout_below="@id/rl_finish_whatdoyouthink"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_review_name"
+            android:fontFamily="@font/oftb"
+            android:includeFontPadding="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#4e4e4e"
+            android:lineSpacingExtra="2sp"
+            android:gravity="center_horizontal"
+            android:text="충북 보은 마을재생 프로젝트"/>
+
+
+</RelativeLayout>
+</RelativeLayout>

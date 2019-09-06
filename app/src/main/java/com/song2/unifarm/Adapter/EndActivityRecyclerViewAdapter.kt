@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.song2.unifarm.Data.CommingActivityData
 import com.song2.unifarm.R
+import com.song2.unifarm.ReviewActivity
+import org.jetbrains.anko.startActivity
 
 class EndActivityRecyclerViewAdapter(var ctx: Context, var dataList: ArrayList<EndActivityData>) :
     RecyclerView.Adapter<EndActivityRecyclerViewAdapter.Holder>() {
@@ -27,7 +29,7 @@ class EndActivityRecyclerViewAdapter(var ctx: Context, var dataList: ArrayList<E
         holder.tv_end_programname.text=dataList[position].program_name.toString()
         holder.tv_end_dday.text=dataList[position].dday.toString()
         holder.tv_end_act_more_btn.setOnClickListener {
-            //후기 쓰러가기
+           ctx.startActivity<ReviewActivity>() //후기 쓰러가기
         }
 
     }
