@@ -13,6 +13,7 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import com.applikeysolutions.cosmocalendar.utils.SelectionType
 import com.applikeysolutions.cosmocalendar.view.CalendarView
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.song2.unifarm.Adapter.CommingActivityRecyclerViewAdapter
 import com.song2.unifarm.Adapter.EndActivityRecyclerViewAdapter
 import com.song2.unifarm.Adapter.RecommendProgramRecyclerViewAdapter
@@ -24,6 +25,12 @@ import kotlinx.android.synthetic.main.activity_calendar.*
 import kotlinx.android.synthetic.main.activity_collect_view.*
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import android.support.v4.app.SupportActivity
+import android.support.v4.app.SupportActivity.ExtraData
+import android.support.v4.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class KotlinCalendar : AppCompatActivity() {
     lateinit var commingActivityRecyclerViewAdapter: CommingActivityRecyclerViewAdapter
@@ -32,14 +39,17 @@ class KotlinCalendar : AppCompatActivity() {
     lateinit var endActivityRecyclerViewAdapter: EndActivityRecyclerViewAdapter
     var endataList: ArrayList<EndActivityData> = ArrayList()
 
-    private var calendarView: CalendarView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
+   var     calendarView = findViewById(R.id.calendar_view) as MaterialCalendarView
+       // initViews()
 
-        CommingdataList.add(CommingActivityData("충북 보은 마을 재생 프로젝트","d-5","2019.08.16 금"))
-        CommingdataList.add(CommingActivityData("익산시 농기계 수리 농활","d-15","2019.09.16 금"))
-        CommingdataList.add(CommingActivityData("고성 초등학교 SW 멘토링","d-30","2019.10.16 금"))
+        calendarView.addDecorators(SundayDecorator(), SaturdayDecorator(), OneDayDecorator())
+        CommingdataList.add(CommingActivityData("충북 보은 마을 재생 프로젝트","d-2","2019.09.08 토"))
+        CommingdataList.add(CommingActivityData("익산시 농기계 수리 농활","d-4","2019.09.10 월"))
+        CommingdataList.add(CommingActivityData("고성 초등학교 SW 멘토링","d-8","2019.09.14 금"))
         commingActivityRecyclerViewAdapter = CommingActivityRecyclerViewAdapter(this, CommingdataList)
         rv_calendar_comming.adapter = commingActivityRecyclerViewAdapter
         rv_calendar_comming.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
@@ -50,15 +60,11 @@ class KotlinCalendar : AppCompatActivity() {
         endActivityRecyclerViewAdapter = EndActivityRecyclerViewAdapter(this, endataList)
         rv_calendar_end.adapter = endActivityRecyclerViewAdapter
         rv_calendar_end.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
-        initViews()
+
 
     }
 
-    private fun initViews() {
-        calendarView = findViewById(R.id.calendar_view) as CalendarView
-        calendarView!!.calendarOrientation = OrientationHelper.HORIZONTAL
 
-    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
@@ -66,7 +72,7 @@ class KotlinCalendar : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+  /*  override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
 
             R.id.clear_selections -> {
@@ -94,5 +100,5 @@ class KotlinCalendar : AppCompatActivity() {
 
             else -> return super.onOptionsItemSelected(item)
         }
-    }
+    }*/
 }
