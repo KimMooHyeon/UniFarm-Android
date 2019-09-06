@@ -21,6 +21,8 @@
     </FrameLayout>
 
     <TextView
+            android:includeFontPadding="false"
+            android:fontFamily="@font/oftb"
         android:id="@+id/tv_signup_text"
         android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
@@ -50,6 +52,8 @@
     </LinearLayout>
 
     <TextView
+            android:includeFontPadding="false"
+            android:fontFamily="@font/otfr"
         android:id="@+id/tv_signup2_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,11 +68,13 @@
     <RelativeLayout
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:background="@drawable/box_bg"
+        android:background="#f9fafc"
         android:layout_below="@+id/tv_signup2_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
+                android:includeFontPadding="false"
+                android:fontFamily="@font/otfr"
             android:id="@+id/tv_signup2_major"
             android:layout_marginTop="58dp"
             android:layout_width="wrap_content"
@@ -78,6 +84,13 @@
             android:lineSpacingExtra="2sp"
             android:text="전공"
             />
+        <ImageView
+                android:layout_centerInParent="true"
+                android:layout_alignParentBottom="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_unifarm_characters"
+                />
         <FrameLayout
             android:id="@+id/fl_signup2_fl"
             android:background="#ffffff"
@@ -86,6 +99,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
             <EditText
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/otfr"
                 android:id="@+id/edt_signup2_major"
                 android:paddingLeft="7dp"
                 android:background="@null"
@@ -108,6 +123,8 @@
 
         </FrameLayout>
         <TextView
+                android:includeFontPadding="false"
+                android:fontFamily="@font/otfr"
             android:layout_below="@+id/fl_signup2_fl"
             android:id="@+id/tv_signup2_sex"
             android:layout_marginTop="40dp"
@@ -132,6 +149,8 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"/>
             <TextView
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/otfr"
                 android:id="@+id/tv_signup2_man"
                 android:layout_toRightOf="@+id/cb_signup2_man"
                 android:layout_width="wrap_content"
@@ -150,6 +169,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/otfr"
                 android:layout_toRightOf="@+id/cb_signup2_girl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -162,6 +183,8 @@
                 />
         </RelativeLayout>
         <TextView
+            android:includeFontPadding="false"
+            android:fontFamily="@font/otfr"
             android:layout_below="@+id/ll_signup2_sexInfo"
             android:id="@+id/tv_signup2_interested"
             android:layout_marginTop="40dp"
@@ -185,6 +208,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
                 <TextView
+                    android:includeFontPadding="false"
+                    android:fontFamily="@font/otfr"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="7dp"
                     android:layout_gravity="center_vertical"
@@ -205,11 +230,13 @@
         </LinearLayout>
         <TextView
             android:id="@+id/tv_signup2_finish"
-            android:background="@drawable/bt_finish"
+             android:background="#8fc31f"
             android:layout_marginTop="31dp"
             android:layout_below="@+id/ll_signup2_interested"
             android:layout_width="match_parent"
             android:textSize="18sp"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/otfeb"
             android:textColor="#ffffff"
             android:lineSpacingExtra="3sp"
             android:text="가입완료"

@@ -28,11 +28,15 @@
         android:textColor="#4e4e4e"
         android:lineSpacingExtra="3sp"
         android:text="아이디"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/oftb"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="20dp"
         />
     <EditText
         android:hint="user"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/otfr"
         android:id="@+id/edt_login_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,6 +55,8 @@
         android:layout_height="40dp">
 
         <TextView
+                android:includeFontPadding="false"
+                android:fontFamily="@font/oftb"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -61,6 +67,8 @@
             android:layout_marginLeft="20dp"
             />
         <EditText
+                android:includeFontPadding="false"
+                android:fontFamily="@font/otfr"
             android:hint="****"
             android:inputType="numberPassword"
             android:id="@+id/edt_login_pw"
@@ -83,17 +91,22 @@
         android:lineSpacingExtra="2sp"
         android:gravity="center"
         android:text="로그인"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/otfeb"
         android:layout_height="40dp"/>
     <TextView
 
         android:id="@+id/tv_login_text"
-        android:layout_centerHorizontal="true"
+
         android:layout_below="@+id/tv_login_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="13sp"
+        android:layout_marginLeft="89dp"
         android:layout_marginTop="18dp"
         android:textColor="#6e6e6e"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/otfr"
         android:lineSpacingExtra="4sp"
         android:text="아직 회원이 아니라면 ?"
         />

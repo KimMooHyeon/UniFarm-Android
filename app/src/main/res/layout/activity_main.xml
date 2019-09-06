@@ -44,7 +44,22 @@
                         android:src="@drawable/profile"
                         android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                 <TextView
-                        android:id="@+id/tv_main_act_user"
+                    android:id="@+id/tv_main_act_user"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/otfeb"
+                    android:layout_below="@+id/iv_main_act_profile"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#333333"
+                    android:lineSpacingExtra="2sp"
+
+                    android:gravity="center_horizontal"
+                    android:text="User"/>
+                <TextView
+                        android:id="@+id/tv_main_act_usernim"
+                        android:layout_toRightOf="@+id/tv_main_act_user"
                         android:layout_below="@+id/iv_main_act_profile"
                         android:layout_centerHorizontal="true"
                         android:layout_width="wrap_content"
@@ -53,7 +68,9 @@
                         android:textColor="#333333"
                         android:lineSpacingExtra="2sp"
                         android:gravity="center_horizontal"
-                        android:text="User 님"/>
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/otfr"
+                        android:text=" 님"/>
                 <TextView
                         android:id="@+id/tv_main_act_major"
                         android:layout_centerHorizontal="true"
@@ -61,6 +78,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="10sp"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/otfr"
                         android:textColor="#4e4e4e"
                         android:lineSpacingExtra="2sp"
                         android:gravity="center_horizontal"
@@ -100,9 +119,12 @@
                                 android:lineSpacingExtra="2sp"
                                 android:gravity="center_horizontal"
                                 android:text="리워드"
-                                android:textStyle="bold"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/otfeb"
                         />
                         <TextView
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/otfr"
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -126,6 +148,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                         <TextView
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/otfeb"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="14sp"
@@ -135,6 +159,8 @@
                                 android:text="다가오는 활동"
                                 android:textStyle="bold"/>
                         <TextView
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/otfr"
                                 android:layout_gravity="center"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -162,6 +188,18 @@
                             android:paddingHorizontal="20dp"
                             android:layout_width="match_parent" android:layout_height="wrap_content">
                         <TextView
+                                android:id="@+id/tv_main_act_recommend_user"
+                                android:layout_centerVertical="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:textColor="#333333"
+                                android:lineSpacingExtra="2sp"
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/oftb"
+                                android:text="User"/>
+                        <TextView
+                                android:layout_toRightOf="@+id/tv_main_act_recommend_user"
                                 android:id="@+id/tv_main_act_recommend_ment"
                                 android:layout_centerVertical="true"
                                 android:layout_width="wrap_content"
@@ -169,10 +207,12 @@
                                 android:textSize="14sp"
                                 android:textColor="#333333"
                                 android:lineSpacingExtra="2sp"
-                                android:textStyle="bold"
-                                android:text="User 님에게 추천해요"/>
-
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/oftb"
+                                android:text=" 님에게 추천해요"/>
                         <TextView
+                                android:includeFontPadding="false"
+                                android:fontFamily="@font/ofl"
                                 android:id="@+id/tv_main_act_more_btn"
                                 android:padding="8dp"
                                 android:layout_alignParentRight="true"
@@ -208,7 +248,8 @@
                                     android:textSize="12sp"
                                     android:textColor="#ffffff"
                                     android:lineSpacingExtra="1sp"
-                                    android:textStyle="bold"
+                                    android:includeFontPadding="false"
+                                    android:fontFamily="@font/oftb"
                                     android:gravity="center_horizontal"
                                     android:text="전공 매칭"/>
 
@@ -223,7 +264,8 @@
                                     android:textColor="#46b6df"
                                     android:lineSpacingExtra="1sp"
                                     android:gravity="center_horizontal"
-                                    android:textStyle="bold"
+                                    android:includeFontPadding="false"
+                                    android:fontFamily="@font/otfeb"
                                     android:text="고성 초등학교 코팅 교육"/>
 
                             <TextView
@@ -235,6 +277,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:textSize="8sp"
+                                    android:includeFontPadding="false"
+                                    android:fontFamily="@font/ofl"
                                     android:textColor="#212121"
                                     android:lineSpacingExtra="1sp"
                                     android:gravity="center_horizontal"
@@ -258,7 +302,8 @@
                                     android:textSize="12sp"
                                     android:textColor="#ffffff"
                                     android:lineSpacingExtra="1sp"
-                                    android:textStyle="bold"
+                                    android:includeFontPadding="false"
+                                    android:fontFamily="@font/oftb"
                                     android:gravity="center_horizontal"
                                     android:text="관심 키워드 매칭"/>
 
@@ -273,13 +318,15 @@
                                     android:textColor="#f26d6d"
                                     android:lineSpacingExtra="1sp"
                                     android:gravity="center_horizontal"
-                                    android:textStyle="bold"
+                                    android:includeFontPadding="false"
+                                    android:fontFamily="@font/otfeb"
                                     android:text="강원도 감자농사 체험"/>
 
                             <TextView
                                     android:layout_marginBottom="0dp"
                                     android:layout_centerHorizontal="true"
-
+                                    android:fontFamily="@font/ofl"
+                                    android:includeFontPadding="false"
                                     android:id="@+id/tv_main_act_title_hashtag_1"
                                     android:layout_below="@+id/tv_main_act_title_1"
                                     android:layout_width="wrap_content"
@@ -315,7 +362,8 @@
                                 android:textSize="14sp"
                                 android:textColor="#333333"
                                 android:lineSpacingExtra="2sp"
-                                android:textStyle="bold"
+                                android:fontFamily="@font/oftb"
+                                android:includeFontPadding="false"
                                 android:text="실시간 인기 프로그램"/>
 
                         <TextView
@@ -353,6 +401,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="13sp"
+                                android:fontFamily="@font/oftb"
+                                android:includeFontPadding="false"
                                 android:textColor="#484848"
                                 android:lineSpacingExtra="4sp"
                                 android:text="01.  "/>
@@ -363,6 +413,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="13sp"
+                                android:fontFamily="@font/ofl"
+                                android:includeFontPadding="false"
                                 android:textColor="#696767"
                                 android:lineSpacingExtra="4sp"
                                 android:text="군산 마을 미화 봉사"/>
@@ -386,7 +438,8 @@
                             android:textSize="14sp"
                             android:textColor="#333333"
                             android:lineSpacingExtra="2sp"
-                            android:textStyle="bold"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
                             android:text="오늘의 키워드"/>
 
                     <GridLayout
@@ -405,7 +458,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:textSize="13sp"
-                                    android:textStyle="bold"
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
                                     android:textColor="#696767"
                                     android:lineSpacingExtra="4sp"
                                     android:text="#5G"/>
@@ -415,6 +469,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/keyword_selector">
                             <TextView
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
                                     android:id="@+id/tv_main_act_keyword1"
                                     android:layout_centerInParent="true"
                                     android:layout_width="wrap_content"
@@ -430,6 +486,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/keyword_selector">
                             <TextView
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
                                     android:id="@+id/tv_main_act_keyword2"
                                     android:layout_centerInParent="true"
                                     android:layout_width="wrap_content"
@@ -445,6 +503,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/keyword_selector">
                             <TextView
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
                                     android:id="@+id/tv_main_act_keyword3"
                                     android:layout_centerInParent="true"
                                     android:layout_width="wrap_content"
@@ -460,6 +520,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/keyword_selector">
                             <TextView
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
                                     android:id="@+id/tv_main_act_keyword4"
                                     android:layout_centerInParent="true"
                                     android:layout_width="wrap_content"
@@ -475,6 +537,8 @@
                                         android:layout_height="wrap_content"
                                         android:background="@drawable/keyword_selector">
                             <TextView
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
                                     android:id="@+id/tv_main_act_keyword5"
                                     android:layout_centerInParent="true"
                                     android:layout_width="wrap_content"
