@@ -11,6 +11,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.song2.unifarm.Adapter.CalenderListAdapter
 import kotlinx.android.synthetic.main.activity_detailed.*
 import org.jetbrains.anko.ctx
+import org.jetbrains.anko.startActivity
 
 
 class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -32,6 +33,11 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
         mapView.onCreate(savedInstanceState)
 
         mapView.getMapAsync(this)
+
+        rl_detailed_act_apply_btn.setOnClickListener {
+            startActivity<SelectDateActivity>()
+        }
+
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {
