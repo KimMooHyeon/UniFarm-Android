@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.song2.unifarm">
+          package="com.song2.unifarm">
 
     <application
             android:allowBackup="true"
@@ -11,7 +11,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".RewordActivity"></activity>
         <activity android:name=".ReviewActivity" />
-        <activity android:name=".CalendarActivity" />
         <activity android:name=".KotlinCalendar" />
         <activity android:name=".CollectViewActivity" />
         <activity android:name=".SettingActivity" />

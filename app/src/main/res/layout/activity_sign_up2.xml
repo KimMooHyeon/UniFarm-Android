@@ -89,8 +89,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/img_unifarm_characters"
-                />
+                android:src="@drawable/img_unifarm_characters"/>
         <FrameLayout
             android:id="@+id/fl_signup2_fl"
             android:background="#ffffff"
