@@ -63,11 +63,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_calendar -> {
                 startActivity<SettingActivity>()
-
             }
-            R.id.nav_calendar -> {
+            R.id.nav_bookmark -> {
                 startActivity<SettingActivity>()
-
             }
             R.id.nav_notice -> {
                 startActivity<SettingActivity>()
