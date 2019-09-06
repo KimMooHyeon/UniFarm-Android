@@ -92,7 +92,7 @@
     <EditText
         android:id="@+id/edt_signup1_school"
         android:paddingLeft="7dp"
-        android:background="null"
+        android:background="@null"
         android:hint="농협대학교"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
@@ -147,7 +147,7 @@
     <EditText
         android:id="@+id/edt_signup1_id"
         android:paddingLeft="4dp"
-        android:background="null"
+        android:background="@null"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
@@ -173,7 +173,7 @@
                 <EditText
                     android:id="@+id/edt_signup1_pw"
                     android:paddingLeft="4dp"
-                    android:background="null"
+                    android:background="@null"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
@@ -199,7 +199,7 @@
                 <EditText
                     android:id="@+id/edt_signup1_repw"
                     android:paddingLeft="4dp"
-                    android:background="null"
+                    android:background="@null"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
@@ -225,7 +225,7 @@
                 <EditText
                     android:id="@+id/edt_signup1_email"
                     android:paddingLeft="4dp"
-                    android:background="null"
+                    android:background="@null"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
@@ -267,7 +267,7 @@
                 <EditText
                     android:id="@+id/edt_signup1_name"
                     android:paddingLeft="4dp"
-                    android:background="null"
+                    android:background="@null"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
@@ -293,7 +293,7 @@
                 <EditText
                     android:id="@+id/edt_signup1_entranceYear"
                     android:paddingLeft="4dp"
-                    android:background="null"
+                    android:background="@null"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />

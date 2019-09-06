@@ -11,6 +11,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        iv_login_logo.setOnClickListener{
+            startActivity<MainActivity>()
+        }
+
         //회원가입
         iv_login_signUp.setOnClickListener {
             startActivity<SignUp1Activity>()

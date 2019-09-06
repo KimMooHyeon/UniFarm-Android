@@ -88,7 +88,7 @@
             <EditText
                 android:id="@+id/edt_signup2_major"
                 android:paddingLeft="7dp"
-                android:background="null"
+                android:background="@null"
                 android:hint="전공을 입력해주세요"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
