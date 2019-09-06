@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.song2.unifarm">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:allowBackup="true"
@@ -11,8 +11,23 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".SearchActivity">
 
+        <uses-library
+                android:name="org.apache.http.legacy"
+                android:required="false"/>
+        <uses-library
+                android:name="com.google.android.maps"
+                android:required="true" />
+
+        <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyBBgJZ8jrEbMp1XfKCc0Mzy2XGJ3bfopFo" />
+
+        <activity android:name=".DetailedActivity">
+
+        </activity>
+
+        <activity android:name=".SearchActivity">
         </activity>
         <activity android:name=".CollectViewActivity"/>
         <activity android:name=".SettingActivity"/>

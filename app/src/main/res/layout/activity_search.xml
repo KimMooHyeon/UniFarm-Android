@@ -123,6 +123,8 @@
                 android:layout_marginStart="20dp"
                 android:lineSpacingExtra="2sp"
                 android:text="검색결과   3건"
+                android:fontFamily="@font/oftb"
+                android:includeFontPadding="false"
                 android:textColor="#484848"
                 android:textSize="14sp"/>
 

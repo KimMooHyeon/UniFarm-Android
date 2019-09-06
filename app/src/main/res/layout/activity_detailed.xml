@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="80dp">
+        <ImageView android:layout_width="match_parent" android:layout_height="80dp"
+                   android:scaleType="fitXY" android:src="@drawable/box_top"/>
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_centerInParent="true">
+
+            <ImageView
+                    android:id="@+id/iv_detailed_act_back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:padding="20dp"
+                    android:src="@drawable/bt_back"/>
+
+            <TextView
+                    android:id="@+id/tv_detailed_act_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/oftb"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="2sp"
+                    android:text="충북 보은 마을재생 프로젝트"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+            />
+
+            <ImageView
+                    android:id="@+id/iv_detailed_act_bookmark"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true" android:padding="20dp"
+                    android:src="@drawable/bt_bookmark_off"/>
+        </RelativeLayout>
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/line_gradation"/>
+    </RelativeLayout>
+
+    <ScrollView
+            android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".DetailedActivity">
+
+            <ImageView
+                    android:id="@+id/iv_detailed_act_title_img"
+                    android:layout_width="match_parent" android:layout_height="240dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_program"/>
+
+            <RelativeLayout
+                    android:id="@+id/rl_detailed_act_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_below="@+id/iv_detailed_act_title_img">
+
+
+                <RelativeLayout
+                        android:id="@+id/rl_detailed_act_suv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp" android:layout_marginTop="10dp">
+                    <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp" android:layout_alignStart="@+id/tv_detailed_act_sub_title"
+                            android:layout_alignEnd="@+id/tv_detailed_act_sub_title"
+                            android:layout_centerInParent="true"
+                            android:background="#ffe674"/>
+                    <TextView
+                            android:id="@+id/tv_detailed_act_sub_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="0dp"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="3sp"
+                            android:text="“마을의 새 단장을 도와주세요”"
+                            android:textColor="#333333" android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+
+                <TextView
+                        android:id="@+id/tv_detailed_act_contents"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_detailed_act_suv_title"
+                        android:fontFamily="@font/oftb"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="14sp"
+                        android:padding="20dp"
+                        android:text="충북 보은의 회남면,  고즈넉하고 여유로움이 느껴지는 조용한 마을입니다. 이 조용한 마을은 요즘 한참 새단장을 준비하느라 오랜만에 들썩이고 있습니다.\n\n
+간만의 새 단장에 설레이고 있는 주민들이지만, 한 가지 골칫거리가 있다고 합니다. 바로 집마다 있는 담장 때문인데요. 칙칙하고 차가워보이는 콘크리트 벽들을 이러지도 못하고 저러지도 못하며 어떻게 하면 좋을지 고민하고 있다고 합니다.\n\n
+담장을 허물지 않고도 마을이 화사해졌으면 좋겠다고 소망하고 있는 회남면 마을 어르신들.\n\n
+유니팜의 여러분이 오래된 콘크리트 담장 외벽에 연필로 밑그림을 그리고, 페인트로 색을 채우며 마을에 생기를 불어 넣어주세요! "
+                        android:textColor="#4e4e4e"
+                        android:textSize="16sp"
+                />
+                <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:layout_alignParentBottom="true"
+                        android:src="@drawable/img_background"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/rl_detailed_act_content" android:orientation="vertical">
+
+                <View android:layout_width="match_parent" android:layout_height="10dp"
+                      android:background="#f0f0f0"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="230dp"
+                        android:orientation="vertical" android:paddingHorizontal="20dp">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="20dp"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="참여 대상"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                    />
+
+                    <TextView
+                            android:id="@+id/tv_detailed_act_entry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="14sp"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                            tools:text="벽화, 그림 그리기, 만들기에 흥미가 있는 대학생 (미대생)"
+                    />
+
+                    <GridLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tv_keyword"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_margin="10dp"
+                            android:columnCount="3" android:useDefaultMargins="true">
+
+                        <RelativeLayout
+                                android:id="@+id/rl_detailed_act_keyword_btn0"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/box_keyword_matching_1">
+                            <TextView
+                                    android:id="@+id/tv_detailed_act_keyword0"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
+                                    android:lineSpacingExtra="4sp"
+                                    android:text="#충북"
+                                    android:textColor="#185429"
+                                    android:textSize="13sp"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:id="@+id/rl_detailed_act_keyword_btn1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/box_1_stkeyword_1">
+                            <TextView
+                                    android:id="@+id/tv_detailed_act_keyword1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
+                                    android:lineSpacingExtra="4sp"
+                                    android:text="#미대"
+                                    android:textColor="#8fc31f"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:id="@+id/rl_detailed_act_keyword_btn2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/box_keyword_matching_1">
+                            <TextView
+                                    android:id="@+id/tv_detailed_act_keyword2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
+                                    android:lineSpacingExtra="4sp"
+                                    android:text="#시각디자인"
+                                    android:textColor="#185429"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:id="@+id/rl_detailed_act_keyword_btn3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/box_1_stkeyword_1">
+                            <TextView
+                                    android:id="@+id/tv_detailed_act_keyword3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
+                                    android:lineSpacingExtra="4sp"
+                                    android:text="#현대미술"
+                                    android:textColor="#8fc31f"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                                android:id="@+id/rl_detailed_act_keyword_btn4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/box_keyword_matching_1">
+                            <TextView
+                                    android:id="@+id/tv_detailed_act_keyword4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true"
+                                    android:fontFamily="@font/oftb"
+                                    android:includeFontPadding="false"
+                                    android:lineSpacingExtra="4sp"
+                                    android:text="#금손"
+                                    android:textColor="#185429"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"/>
+                        </RelativeLayout>
+                    </GridLayout>
+
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                      android:background="#4e4e4e"/>
+
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="95dp"
+                        android:orientation="vertical" android:padding="16dp">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="정원"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    <TextView
+                            android:id="@+id/tv_detailed_act_detailed_cnt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="20명"
+                            android:textColor="#333333"
+                            android:textSize="16sp"/>
+
+
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="10dp"
+                      android:background="#f0f0f0"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:orientation="vertical" android:padding="16dp">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="일정"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_detailed_act_calender_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                    </android.support.v7.widget.RecyclerView>
+
+
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="10dp"
+                      android:background="#f0f0f0"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="95dp"
+                        android:orientation="vertical" android:padding="16dp">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="리워드"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    <TextView
+
+                            android:id="@+id/tv_detailed_act_reward"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="기본리워드 + VMS 8시간"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                    />
+
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="10dp"
+                      android:background="#f0f0f0"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:orientation="vertical" android:padding="16dp">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="위치"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                    <TextView
+                            android:id="@+id/tv_detailed_act_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="충북 보은군 회남면 거교리"
+                            android:textColor="#333333"
+                            android:textSize="16sp"/>
+
+                    <com.google.android.gms.maps.MapView
+                            android:id="@+id/fragment_detailed_act_location_map"
+                            android:layout_marginVertical="20dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="350dp" android:layout_height="150dp">
+
+                    </com.google.android.gms.maps.MapView>
+
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="10dp"
+                      android:background="#f0f0f0"/>
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="95dp"
+                        android:orientation="vertical" android:padding="16dp">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="활동비"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    <TextView
+                            android:id="@+id/tv_detailed_act_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="5,000 원 (1회)"
+                            android:textColor="#333333"
+                            android:textSize="16sp"/>
+
+
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="10dp"
+                      android:background="#f0f0f0"/>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:layout_marginBottom="50dp"
+                        android:orientation="vertical" android:padding="16dp">
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="문의"
+                            android:textColor="#333333"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    <TextView
+                            android:id="@+id/tv_detailed_act_question"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="거교리 마을회관"
+                            android:textColor="#333333"
+                            android:textSize="16sp"/>
+
+                    <TextView
+                            android:id="@+id/tv_detailed_act_call"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/oftb"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="2sp"
+                            android:text="010-0000-0000"
+                            android:textColor="#333333"
+                            android:textSize="16sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </ScrollView>
+    <LinearLayout
+            android:id="@+id/ll_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="68dp" android:layout_marginTop="-68dp">
+        <RelativeLayout
+                android:id="@+id/rl_detailed_act_share_btn"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:background="#4e4e4e">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                           android:src="@drawable/ic_share"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/oftb"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="3sp"
+                        android:text="공유"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/rl_detailed_act_apply_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:background="#8fc31f">
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                           android:src="@drawable/ic_apply"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/oftb"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:lineSpacingExtra="3sp"
+                        android:text="신청"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
