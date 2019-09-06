@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuInflater
 import android.widget.ImageView
+import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -30,6 +31,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setTitle("")
         navView.setNavigationItemSelectedListener(this)
+
+        iv_main_act_btn_reward.setOnClickListener {
+            startActivity<RewordActivity>()
+        }
+
+        rl_main_act_comming_act.setOnClickListener {
+            startActivity<DetailedActivity>()
+        }
 
     }
 

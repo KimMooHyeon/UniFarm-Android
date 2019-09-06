@@ -51,34 +51,38 @@ class KotlinCalendar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
-   var     calendarView = findViewById(R.id.calendar_view) as MaterialCalendarView
-       // initViews()
-       var   dates : ArrayList<CalendarDay>  =  ArrayList();
+        var calendarView = findViewById(R.id.calendar_view) as MaterialCalendarView
 
-        var date =CalendarDay.from(2019, 8, 10)
-        var date2 =CalendarDay.from(2019, 8, 8)
+
+        // initViews()
+        var dates: ArrayList<CalendarDay> = ArrayList();
+
+        var date = CalendarDay.from(2019, 8, 10)
+        var date2 = CalendarDay.from(2019, 8, 8)
         dates.add(date)
         dates.add(date2)
         calendarView.addDecorators(SundayDecorator(), SaturdayDecorator(), OneDayDecorator())
-        calendarView.addDecorator(EventDecorator(Color.RED, dates ,this))
+        calendarView.addDecorator(EventDecorator(Color.RED, dates, this))
 
-        CommingdataList.add(CommingActivityData("충북 보은 마을 재생 프로젝트","D-2","2019.09.08 토"))
-        CommingdataList.add(CommingActivityData("익산시 농기계 수리 농활","D-4","2019.09.10 월"))
-        CommingdataList.add(CommingActivityData("고성 초등학교 SW 멘토링","D-8","2019.09.14 금"))
+        CommingdataList.add(CommingActivityData("충북 보은 마을 재생 프로젝트", "D-2", "2019.09.08 토"))
+        CommingdataList.add(CommingActivityData("익산시 농기계 수리 농활", "D-4", "2019.09.10 월"))
+        CommingdataList.add(CommingActivityData("고성 초등학교 SW 멘토링", "D-8", "2019.09.14 금"))
         commingActivityRecyclerViewAdapter = CommingActivityRecyclerViewAdapter(this, CommingdataList)
         rv_calendar_comming.adapter = commingActivityRecyclerViewAdapter
-        rv_calendar_comming.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        rv_calendar_comming.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        endataList.add(EndActivityData("충북 보은 마을 재생 프로젝트","D-5","2019.08.16 금"))
-        endataList.add(EndActivityData("익산시 농기계 수리 농활","D-15","2019.09.16 금"))
-        endataList.add(EndActivityData("고성 초등학교 SW 멘토링","D-30","2019.10.16 금"))
+        endataList.add(EndActivityData("충북 보은 마을 재생 프로젝트", "D-5", "2019.08.16 금"))
+        endataList.add(EndActivityData("익산시 농기계 수리 농활", "D-15", "2019.09.16 금"))
+        endataList.add(EndActivityData("고성 초등학교 SW 멘토링", "D-30", "2019.10.16 금"))
         endActivityRecyclerViewAdapter = EndActivityRecyclerViewAdapter(this, endataList)
         rv_calendar_end.adapter = endActivityRecyclerViewAdapter
-        rv_calendar_end.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        rv_calendar_end.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
+        iv_collect_view_home_1.setOnClickListener {
+            finish()
+        }
 
     }
-
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -87,33 +91,33 @@ class KotlinCalendar : AppCompatActivity() {
         return true
     }
 
-  /*  override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+    /*  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+          when (item.itemId) {
 
-            R.id.clear_selections -> {
-                calendarView!!.clearSelections()
-                return true
-            }
+              R.id.clear_selections -> {
+                  calendarView!!.clearSelections()
+                  return true
+              }
 
-            R.id.show_selections -> {
-                val days = calendarView!!.selectedDates
+              R.id.show_selections -> {
+                  val days = calendarView!!.selectedDates
 
-                var result = ""
-                for (i in days.indices) {
-                    val calendar = days[i]
-                    val day = calendar.get(Calendar.DAY_OF_MONTH)
-                    val month = calendar.get(Calendar.MONTH)
-                    val year = calendar.get(Calendar.YEAR)
-                    val week = SimpleDateFormat("EE").format(calendar.time)
-                    val day_full =
-                        year.toString() + "년 " + (month + 1) + "월 " + day + "일 " + week + "요일"
-                    result += day_full + "\n"
-                }
-                Toast.makeText(this, result, Toast.LENGTH_LONG).show()
-                return true
-            }
+                  var result = ""
+                  for (i in days.indices) {
+                      val calendar = days[i]
+                      val day = calendar.get(Calendar.DAY_OF_MONTH)
+                      val month = calendar.get(Calendar.MONTH)
+                      val year = calendar.get(Calendar.YEAR)
+                      val week = SimpleDateFormat("EE").format(calendar.time)
+                      val day_full =
+                          year.toString() + "년 " + (month + 1) + "월 " + day + "일 " + week + "요일"
+                      result += day_full + "\n"
+                  }
+                  Toast.makeText(this, result, Toast.LENGTH_LONG).show()
+                  return true
+              }
 
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }*/
+              else -> return super.onOptionsItemSelected(item)
+          }
+      }*/
 }

@@ -153,8 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/tv_collect_recommend"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="195dp"
+            android:layout_marginTop="25dp"
             app:layoutManager="android.support.v7.widget.StaggeredGridLayoutManager"
             app:spanCount="2" />
 </RelativeLayout>
