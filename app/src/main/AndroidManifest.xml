@@ -9,7 +9,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".CalendarActivity"></activity>
+        <activity android:name=".RewordActivity"></activity>
+        <activity android:name=".ReviewActivity" />
+        <activity android:name=".CalendarActivity" />
         <activity android:name=".KotlinCalendar" />
         <activity android:name=".CollectViewActivity" />
         <activity android:name=".SettingActivity" />

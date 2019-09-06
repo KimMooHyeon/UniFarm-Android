@@ -20,7 +20,7 @@ public class EventDecorator implements DayViewDecorator {
     private HashSet<CalendarDay> dates;
 
     public EventDecorator(int color, Collection<CalendarDay> dates, Activity context) {
-        drawable = context.getResources().getDrawable(R.drawable.more);
+        drawable = context.getResources().getDrawable(R.drawable.img_reward0);
         this.color = color;
         this.dates = new HashSet<>(dates);
     }
