@@ -8,6 +8,7 @@
         android:orientation="vertical"
         tools:context=".SearchActivity">
 
+
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:paddingVertical="16dp">
@@ -17,7 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="20dp" android:padding="8dp"
+                android:layout_marginStart="20dp" android:padding="12dp"
                 android:src="@drawable/bt_back"/>
 
         <RelativeLayout
@@ -40,10 +41,10 @@
                     android:layout_toRightOf="@+id/iv_search_act_search_btn"
                     android:background="@null"
                     android:fontFamily="@font/oftb"
-                    android:imeOptions="actionSearch"
-                    android:inputType="text"
                     android:hint="검색어를 입력 해 주세요"
-                    android:includeFontPadding="false" android:padding="8dp"
+                    android:imeOptions="actionSearch"
+                    android:includeFontPadding="false"
+                    android:inputType="text" android:padding="8dp"
                     android:textSize="14dp"/>
             <ImageView
                     android:id="@+id/iv_search_act_delete_btn"
@@ -54,10 +55,93 @@
         </RelativeLayout>
     </RelativeLayout>
 
+    <RelativeLayout
+            android:id="@+id/rl_search_result_non_container"
+            android:visibility="gone"
+            android:layout_width="match_parent" android:layout_height="match_parent">
+        <RelativeLayout
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:paddingHorizontal="30dp">
+
+            <ImageView
+                    android:id="@+id/iv_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_errorbookmark"/>
+
+            <TextView
+                    android:id="@+id/tv_non_bookmark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_error"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginVertical="30dp"
+                    android:lineSpacingExtra="2sp"
+                    android:text="저장된 북마크가 없습니다."
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+            />
+
+            <ImageView
+                    android:id="@+id/iv_noun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_non_bookmark" android:layout_centerHorizontal="true"
+                    android:src="@drawable/img_nounbookmark"/>
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/iv_noun"
+                    android:layout_centerHorizontal="true" android:layout_marginVertical="50dp"
+                    android:background="@drawable/bt_gotounifarm">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center_horizontal"
+                        android:lineSpacingExtra="3sp"
+                        android:text="활동 찾아보기"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
     <LinearLayout
-            android:paddingHorizontal="20dp"
+            android:id="@+id/ll_search_result_container"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tv_search_act_result_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginStart="20dp"
+                android:lineSpacingExtra="2sp"
+                android:text="검색결과   3건"
+                android:textColor="#484848"
+                android:textSize="14sp"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_search_act_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="20dp">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+            android:id="@+id/ll_search_act_history_search_container"
             android:layout_width="match_parent"
-            android:layout_height="300dp" android:orientation="vertical">
+            android:layout_height="300dp"
+            android:orientation="vertical" android:paddingHorizontal="20dp">
 
         <TextView
                 android:id="@+id/tv_history_search"
@@ -75,13 +159,13 @@
 
         <TextView
                 android:id="@+id/tv_search_act_no_result"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
-                android:textColor="#d7d7d7"
                 android:lineSpacingExtra="1sp"
-                android:text="최근 검색어 없음"/>
+                android:text="최근 검색어 없음"
+                android:textColor="#d7d7d7"
+                android:textSize="13sp"
+                android:visibility="gone"/>
 
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_history_search"
