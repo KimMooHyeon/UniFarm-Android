@@ -59,8 +59,10 @@ class KotlinCalendar : AppCompatActivity() {
 
         var date = CalendarDay.from(2019, 8, 10)
         var date2 = CalendarDay.from(2019, 8, 8)
+        var date3 = CalendarDay.from(2019, 8, 14)
         dates.add(date)
         dates.add(date2)
+        dates.add(date3)
         calendarView.addDecorators(SundayDecorator(), SaturdayDecorator(), OneDayDecorator())
         calendarView.addDecorator(EventDecorator(Color.RED, dates, this))
 

@@ -53,27 +53,27 @@ class CollectViewActivity : AppCompatActivity() {
             tv_collect_major_standard.setTextColor(Color.parseColor("#cecece"))
         }
 
-        RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","충북 보은 마을재생","#충북","41","50"))
+        RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","익산시 농기계 수리 농활","#익산","41","50"))
         RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","충남 보은 마을재생","#충남","43","50"))
         RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","경북 보은 마을재생","#경북","45","50"))
         RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","충북 보은 마을재생","#충북","41","50"))
-        RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","충남 보은 마을재생","#충남","43","50"))
+        RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","고성 초등학교 SW 멘토링","#고성","43","50"))
         RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","경북 보은 마을재생","#경북","45","50"))
         RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","충북 보은 마을재생","#충북","41","50"))
         RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","충남 보은 마을재생","#충남","43","50"))
-        RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","경북 보은 마을재생","#경북","45","50"))
+        RecommenddataList.add(RecommendCollectViewData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","익산시 농기계 수리 농활","#익산","45","50"))
         recommendProgramRecyclerViewAdapter = RecommendProgramRecyclerViewAdapter(this, RecommenddataList)
         rv_recommend_program.adapter = recommendProgramRecyclerViewAdapter
 
 
         CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","인천광역시","공부하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","부산광역시","놀기"))
+        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","부산광역시","체험하기"))
         CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","서울특별시","취업하기"))
         CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","인천광역시","공부하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","부산광역시","놀기"))
+        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","부산광역시","봉사하기"))
         CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","서울특별시","취업하기"))
         CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","인천광역시","공부하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","부산광역시","놀기"))
+        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","부산광역시","선행기"))
         CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","서울특별시","취업하기"))
         collectViewPopularRecyclerViewAdapter = CollectViewPopularRecyclerViewAdapter(this, CollectdataList)
         rv_collect_pupular.adapter = collectViewPopularRecyclerViewAdapter

@@ -49,7 +49,7 @@
             android:includeFontPadding="false"
             android:fontFamily="@font/otfeb"
             android:gravity="center_horizontal"
-            android:text="User" />
+            android:text="독고농협" />
     <TextView
             android:layout_toRightOf="@+id/tv_reword_username"
             android:layout_marginTop="17dp"

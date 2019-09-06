@@ -34,7 +34,8 @@
         android:layout_marginLeft="20dp"
         />
     <EditText
-        android:hint="user"
+        android:text="ywooo21@gmail.com"
+            android:textSize="12sp"
             android:includeFontPadding="false"
             android:fontFamily="@font/otfr"
         android:id="@+id/edt_login_id"
@@ -69,12 +70,13 @@
         <EditText
                 android:includeFontPadding="false"
                 android:fontFamily="@font/otfr"
-            android:hint="****"
-            android:inputType="numberPassword"
+            android:hint="unifarmpassword"
+            android:inputType="textPassword"
             android:id="@+id/edt_login_pw"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@null"
+                android:textSize="11sp"
             android:paddingLeft="96dp"
             />
     </FrameLayout>
