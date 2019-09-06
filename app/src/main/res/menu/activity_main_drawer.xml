@@ -6,7 +6,7 @@
     <group
             android:checkableBehavior="single">
         <item
-                android:id="@+id/nav_home"
+                android:id="@+id/nav_collect_view"
                 android:icon="@drawable/ic_more"
                 android:title="유니팜 모아보기"/>
         <item

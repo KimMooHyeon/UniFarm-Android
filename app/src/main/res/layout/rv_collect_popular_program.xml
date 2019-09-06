@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        android:layout_marginLeft="24dp"
+        android:id="@+id/rv_collect_allview"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+<de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/cv_collect_popular"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/coloring"
+        />
+    <TextView
+            android:layout_marginTop="11dp"
+            android:fontFamily="@font/ofl"
+            android:includeFontPadding="false"
+            android:id="@+id/rv_tv_collect_popular_city"
+            android:layout_below="@+id/cv_collect_popular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginLeft="11dp"
+            android:textColor="#333333"
+            android:lineSpacingExtra="3sp"
+            android:layout_centerHorizontal="true"
+            android:text="충북 보은"
+            />
+    <TextView
+            android:fontFamily="@font/ofl"
+            android:includeFontPadding="false"
+            android:id="@+id/rv_tv_collect_popular_program"
+            android:layout_below="@+id/rv_tv_collect_popular_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_marginLeft="11dp"
+            android:textColor="#333333"
+            android:lineSpacingExtra="3sp"
+            android:layout_centerHorizontal="true"
+            android:text="벽화그리"
+            />
+</RelativeLayout>

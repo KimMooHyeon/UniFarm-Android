@@ -62,14 +62,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_home -> {
-                startActivity<SettingActivity>()
-            }
-            R.id.nav_calendar -> {
-                startActivity<SettingActivity>()
+            R.id.nav_collect_view -> {
+                startActivity<CollectViewActivity>()
             }
             R.id.nav_bookmark -> {
                 startActivity<SettingActivity>()
+
+            }
+            R.id.nav_calendar -> {
+                startActivity<KotlinCalendar>()
+
             }
             R.id.nav_notice -> {
                 startActivity<SettingActivity>()
