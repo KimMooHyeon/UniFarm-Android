@@ -12,7 +12,7 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="WhiteRatingStar" parent="Base.Widget.AppCompat.RatingBar.Small">
-        <item name="colorAccent">@android:color/white</item>
+        <item name="colorAccent">@android:color/holo_orange_light</item>
     </style>
     <style name="categoryEditTheme" parent="@style/Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@color/transcolor</item>
