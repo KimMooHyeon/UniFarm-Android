@@ -12,8 +12,10 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import com.song2.unifarm.Adapter.SearchAdapter
 import com.song2.unifarm.Adapter.SearchHistoryAdapter
 import com.song2.unifarm.DB.DBSearchHelper
+import com.song2.unifarm.Data.SearchResult
 import kotlinx.android.synthetic.main.activity_search.*
 import org.jetbrains.anko.ctx
 import org.jetbrains.anko.support.v4.ctx
@@ -22,10 +24,13 @@ import org.jetbrains.anko.toast
 
 class SearchActivity : AppCompatActivity(){
     lateinit var searchData: ArrayList<String>
+    lateinit var searchResultData: ArrayList<SearchResult>
+
     lateinit var searchDbHelper: DBSearchHelper
     lateinit var searchDB: SQLiteDatabase
-    lateinit var searchHistoryAdapter: SearchHistoryAdapter
 
+    lateinit var searchHistoryAdapter: SearchHistoryAdapter
+    lateinit var searchAdapter: SearchAdapter
 
     lateinit var cursor: Cursor
 
@@ -36,15 +41,24 @@ class SearchActivity : AppCompatActivity(){
         searchDbHelper = DBSearchHelper(ctx)
         searchDB = searchDbHelper.writableDatabase
 
+        ll_search_result_container.visibility = View.GONE
+
         //keyboard - searchBtn
         insertSearchHistoryData(searchDB)
 
         setHistoryRecyclerView()
+        setSearchResult()
+
+        iv_search_act_back_btn.setOnClickListener {
+            finish()
+        }
 
         et_search_act_search_contents.setOnEditorActionListener({ textView, actionId, keyEvent ->
             var handled = false
 
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                ll_search_result_container.visibility = View.GONE //검색결과
+
                 var keyword = et_search_act_search_contents.text.toString()
                 if (keyword.equals(""))
                     toast("적어도 한 글자 이상을 입력 해 주세요")
@@ -56,6 +70,8 @@ class SearchActivity : AppCompatActivity(){
                     searchDB= searchDbHelper.writableDatabase
 
                     insertSearchHistoryData(searchDB)
+
+                    ll_search_result_container.visibility = View.VISIBLE //검색결과
                 }
             }
             handled
@@ -64,6 +80,7 @@ class SearchActivity : AppCompatActivity(){
         // Edittext focus ON
         et_search_act_search_contents.setOnFocusChangeListener { view, hasFocus ->
             if (hasFocus) {
+                ll_search_result_container.visibility = View.GONE //검색결과
 
                 insertSearchHistoryData(searchDB)
                 rv_history_search.visibility = View.VISIBLE
@@ -76,12 +93,15 @@ class SearchActivity : AppCompatActivity(){
                 searchEditTextFocusOn()
             }else{
                 rv_history_search.visibility = View.GONE
+                ll_search_result_container.visibility = View.VISIBLE //검색결과
+
             }
         }
         // edt delete
         iv_search_act_delete_btn.setOnClickListener {
             et_search_act_search_contents.setText("")
             rv_history_search.visibility = View.VISIBLE
+            ll_search_result_container.visibility = View.GONE //검색결과
         }
 
     }
@@ -179,5 +199,34 @@ class SearchActivity : AppCompatActivity(){
         val imm = ctx!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(et_search_act_search_contents.windowToken, 0)
     }
+
+    fun setSearchResult(){
+
+        var searchResult = SearchResult("https://t1.daumcdn.net/cfile/tistory/2442394558BBBD1934",
+            "강원도 농촌 체험",
+            "#후기 #농혐 #감자캐기 #체험",
+            false         )
+
+        var searchResult1 = SearchResult("https://t1.daumcdn.net/cfile/tistory/2442394558BBBD1934",
+            "전공 체험(컴퓨터공학과)",
+            "#코딩 #교육 #초등학생 #공학",
+            true         )
+
+
+        searchResultData = ArrayList()
+
+        searchResultData.add(searchResult)
+        searchResultData.add(searchResult1)
+
+        searchAdapter = SearchAdapter(ctx,searchResultData)
+        rv_search_act_result.adapter = searchAdapter
+        rv_search_act_result.layoutManager = LinearLayoutManager(ctx)
+    }
+
+    fun setSearchResultView(){
+        ll_search_result_container.visibility = View.VISIBLE //검색결과
+
+    }
+
 
 }

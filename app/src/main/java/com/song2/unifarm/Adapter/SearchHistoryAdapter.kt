@@ -13,12 +13,12 @@ import android.widget.TextView
 import com.song2.unifarm.DB.DBSearchHelper
 import com.song2.unifarm.R
 import com.song2.unifarm.SearchActivity
+import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchHistoryAdapter(val ctx : Context, val searchActivity: SearchActivity, val searchData : ArrayList<String>) : RecyclerView.Adapter<SearchHistoryAdapter.Holder>() {
 
     var searchDbHelper = DBSearchHelper(ctx)
     lateinit var searchDB: SQLiteDatabase
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder{
         //뷰 인플레이트
@@ -50,6 +50,7 @@ class SearchHistoryAdapter(val ctx : Context, val searchActivity: SearchActivity
 
             searchDB= searchDbHelper.writableDatabase
             searchActivity.insertSearchHistoryData(searchDB)
+            searchActivity.setSearchResultView()
         }
 
         holder.historyKeyword.text = searchData[position]
