@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        tv_main_act_now_title.isSelected=true
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -37,7 +38,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         rl_main_act_comming_act.setOnClickListener {
-            startActivity<DetailedActivity>()
+            startActivity<KotlinCalendar>()
+        }
+
+        rl_main_act_major_btn.setOnClickListener {
+            startActivity<DetailedActivity>("idxxx" to 1)
+        }
+
+        rl_main_act_keyword_btn.setOnClickListener {
+            startActivity<DetailedActivity>("idxxx" to 2)
         }
 
     }

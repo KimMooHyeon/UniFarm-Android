@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4d000000"
+        tools:context=".SelectDateActivity">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginBottom="68dp"
+            android:layout_alignParentBottom="true"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/tv_text_setting_ment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/oftb"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="2sp"
+                android:text="날짜를 선택 해 주세요"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_below="@+id/tv_text_setting_ment"
+        >
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp" android:background="@drawable/datalist_shape"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:id="@+id/rl_more_btn"
+                        android:layout_width="match_parent" android:layout_height="40dp"
+                        android:background="#54cacaca">
+                    <TextView
+                            android:id="@+id/tv_setting_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true" android:paddingHorizontal="20dp"/>
+                    <ImageView
+                            android:id="@+id/btn_select_date_act_disapear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true" android:padding="4dp"
+                            android:src="@drawable/bt_dropdown"/>
+                </RelativeLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                      android:background="#4e4e4e"/>
+
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_select_date_act_data_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                >
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true" android:background="#54cacaca"
+                android:paddingHorizontal="20dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:lineSpacingExtra="2sp"
+                    android:text="합계금액"
+                    android:textColor="#333333"
+                    android:textSize="14sp"
+            />
+            <TextView
+                    android:id="@+id/tv_select_date_act_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:lineSpacingExtra="2sp"
+                    android:text="0원"
+                    android:textColor="#8fc31f"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+            />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/rl_select_date_act_apply_btn"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_alignParentBottom="true"
+            android:background="#8fc31f">
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                       android:src="@drawable/ic_apply"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/oftb"
+                    android:gravity="center_horizontal"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:text="신청"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

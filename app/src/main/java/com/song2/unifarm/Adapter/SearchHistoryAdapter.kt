@@ -51,6 +51,8 @@ class SearchHistoryAdapter(val ctx : Context, val searchActivity: SearchActivity
             searchDB= searchDbHelper.writableDatabase
             searchActivity.insertSearchHistoryData(searchDB)
             searchActivity.setSearchResultView()
+
+            searchActivity.getSearchResponse(keyword)
         }
 
         holder.historyKeyword.text = searchData[position]

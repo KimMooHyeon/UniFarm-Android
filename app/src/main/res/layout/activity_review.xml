@@ -4,11 +4,113 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#00000000"
+        android:background="#4d000000"
         tools:context=".ReviewActivity">
-<ImageView
+    <RelativeLayout
+            android:layout_above="@+id/rl_review_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rl_container_touch"
+            android:background="@color/transparent">
+    </RelativeLayout>
+<RelativeLayout
+        android:id="@+id/rl_review_all"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="556dp"
-        android:background="@drawable/background"
-        />
+        android:background="@drawable/background" >
+    <TextView
+            android:layout_marginTop="63dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_review_name"
+            android:fontFamily="@font/oftb"
+            android:includeFontPadding="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#4e4e4e"
+            android:lineSpacingExtra="2sp"
+            android:gravity="center_horizontal"
+            android:text="충북 보은 마을재생 프로젝트"/>
+    <ImageView
+            android:src="@drawable/bt_cancle"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:id="@+id/iv_review_cancel"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    <TextView
+            android:layout_below="@+id/tv_review_name"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/tv_review_date"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/oftb"
+            android:includeFontPadding="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#4e4e4e"
+            android:lineSpacingExtra="2sp"
+            android:gravity="center_horizontal"
+            android:text="2019년 9월 28일"/>
+    <RelativeLayout
+            android:id="@+id/rl_review_whatdoyouthink"
+            android:layout_below="@+id/tv_review_date"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <ImageView
+                android:layout_centerInParent="true"
+                android:src="@drawable/box_sorry"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <TextView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="38sp"
+                android:textColor="#000000"
+                android:lineSpacingExtra="5sp"
+                android:text="어떠셨나요?"
+                android:fontFamily="@font/otfeb"
+                android:includeFontPadding="false"/>
+    </RelativeLayout>
+
+    <RatingBar android:id="@+id/ratingbar_review" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_review_whatdoyouthink"
+    android:stepSize="0.5"
+    android:rating="5"
+            android:layout_marginTop="27dp"
+            android:layout_centerHorizontal="true"
+    />
+    <EditText
+            android:id="@+id/edt_review_review"
+            android:hint="입력해주세요"
+            android:fontFamily="@font/otfr"
+            android:includeFontPadding="false"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="30dp"
+            android:background="@drawable/boreder"
+            android:paddingLeft="10dp"
+            android:paddingTop="14dp"
+            android:layout_below="@+id/ratingbar_review"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"/>
+    <TextView
+            android:id="@+id/tv_review_confirm"
+            android:layout_marginTop="63dp"
+            android:layout_below="@+id/edt_review_review"
+            android:layout_width="match_parent"
+            android:background="#8fc31f"
+            android:text="전송"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/otfeb"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:layout_height="70dp"/>
+</RelativeLayout>
 </RelativeLayout>

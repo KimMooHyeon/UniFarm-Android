@@ -16,15 +16,23 @@ import com.song2.unifarm.Adapter.SearchAdapter
 import com.song2.unifarm.Adapter.SearchHistoryAdapter
 import com.song2.unifarm.DB.DBSearchHelper
 import com.song2.unifarm.Data.SearchResult
+import com.song2.unifarm.Network.ApplicationController
+import com.song2.unifarm.Network.GET.GetSearchResponse
+import com.song2.unifarm.Network.GET.ProgramDataN
+import com.song2.unifarm.Network.NetworkService
 import kotlinx.android.synthetic.main.activity_search.*
 import org.jetbrains.anko.ctx
 import org.jetbrains.anko.support.v4.ctx
 import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.toast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SearchActivity : AppCompatActivity(){
     lateinit var searchData: ArrayList<String>
     lateinit var searchResultData: ArrayList<SearchResult>
+
 
     lateinit var searchDbHelper: DBSearchHelper
     lateinit var searchDB: SQLiteDatabase
@@ -72,6 +80,9 @@ class SearchActivity : AppCompatActivity(){
                     insertSearchHistoryData(searchDB)
 
                     ll_search_result_container.visibility = View.VISIBLE //검색결과
+
+                    //토신
+                    getSearchResponse(keyword)
                 }
             }
             handled
@@ -103,6 +114,36 @@ class SearchActivity : AppCompatActivity(){
             rv_history_search.visibility = View.VISIBLE
             ll_search_result_container.visibility = View.GONE //검색결과
         }
+
+    }
+
+    fun getSearchResponse(keyword: String){
+        var networkService: NetworkService = ApplicationController.instance.networkService
+        var getSearchResponse: Call<GetSearchResponse> = networkService.getSearchResponse("application/json",keyword)
+        getSearchResponse.enqueue(object : Callback<GetSearchResponse> {
+            override fun onResponse(call: Call<GetSearchResponse>?, response: Response<GetSearchResponse>?) {
+                Log.v("TAG", "검색 - 서버 통신 연결")
+                if (response!!.isSuccessful) {
+                    var temp: ProgramDataN = response.body()!!.data
+                    Log.e("검색 성공!",temp.toString())
+
+                    if (temp != null) {
+
+                        temp.keywordProgram
+
+                    } else {
+
+                    }
+                } else {
+                    Log.v("TAG", " 검색 실패")
+
+                }
+            }
+
+            override fun onFailure(call: Call<GetSearchResponse>?, t: Throwable?) {
+                Log.v("TAG", "통신 실패 = " + t.toString())
+            }
+        })
 
     }
 
