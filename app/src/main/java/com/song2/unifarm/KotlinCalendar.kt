@@ -63,7 +63,9 @@ class KotlinCalendar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
         // initViews()
-
+        iv_recycler.setOnClickListener {
+            getUserProgramResponse()
+        }
 
 
 
@@ -135,6 +137,9 @@ class KotlinCalendar : AppCompatActivity() {
                     var dates: ArrayList<CalendarDay> = ArrayList();
 
                     for(i in 0..response.body()!!.data.programIng.size-1) {
+                        if(Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(5,6)))==10||Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(5,6)))==11||Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(6,6)))==12){
+                            dates.add(CalendarDay.from(Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(0,3))), Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(5,6)))-1, Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(8,9)))))
+                        }else
                         dates.add(CalendarDay.from(Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(0,3))), Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(6,6)))-1, Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(8,9)))))
                       }
 

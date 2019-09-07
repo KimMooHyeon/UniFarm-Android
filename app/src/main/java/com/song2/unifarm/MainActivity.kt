@@ -64,10 +64,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         rl_main_act_major_btn.setOnClickListener {
             startActivity<DetailedActivity>("idxxx" to 1)
+            this.overridePendingTransition(0, R.anim.fade_out)
         }
 
         rl_main_act_keyword_btn.setOnClickListener {
             startActivity<DetailedActivity>("idxxx" to 2)
+            this.overridePendingTransition(0, R.anim.fade_out)
         }
 
     }

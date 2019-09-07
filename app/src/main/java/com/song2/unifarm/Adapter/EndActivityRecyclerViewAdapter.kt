@@ -32,7 +32,7 @@ class EndActivityRecyclerViewAdapter(var ctx: Context, var dataList: ArrayList<E
         }
         holder.tv_end_dday.text=dataList[position].dday.toString()
         holder.tv_end_act_more_btn.setOnClickListener {
-           ctx.startActivity<ReviewActivity>() //후기 쓰러가기
+           ctx.startActivity<ReviewActivity>("name" to dataList[position].title.toString(), "date" to dataList[position].startDate.toString()) //후기 쓰러가기
         }
 
     }

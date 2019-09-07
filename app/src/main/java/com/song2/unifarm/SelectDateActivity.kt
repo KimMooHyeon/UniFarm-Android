@@ -49,6 +49,7 @@ class SelectDateActivity : AppCompatActivity() {
                 startActivity<CompleteActivity>()
                 postProgramResponse()
                 finish()
+                this.overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }else{
                 toast("회차를 선택 해 주세요!")
             }
