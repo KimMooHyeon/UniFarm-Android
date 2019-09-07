@@ -158,8 +158,8 @@
                                 android:textColor="#333333"
                                 android:lineSpacingExtra="2sp"
                                 android:gravity="center_horizontal"
-                                android:text="다가오는 활동"
-                                android:textStyle="bold"/>
+                                android:text="          D-12"
+                                />
                         <TextView
                                 android:layout_marginTop="6dp"
                                 android:includeFontPadding="false"
@@ -171,7 +171,7 @@
                                 android:textColor="#4e4e4e"
                                 android:lineSpacingExtra="2sp"
                                 android:gravity="center_horizontal"
-                                android:text="없음"/>
+                                android:text="용면리 노인정 재건축 농활\n 2019.09.19"/>
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
@@ -384,7 +384,7 @@
                                 android:textColor="#484848"
                                 android:lineSpacingExtra="2sp"
                                 android:gravity="end"
-                                android:text="15:00 기준"
+                                android:text="15:00"
                         />
 
                     </RelativeLayout>

@@ -10,27 +10,15 @@
         android:layout_height="70dp"
         android:src="@drawable/coloring"
         />
+
     <TextView
-            android:layout_marginTop="11dp"
-            android:fontFamily="@font/ofl"
-            android:includeFontPadding="false"
-            android:id="@+id/rv_tv_collect_popular_city"
-            android:layout_below="@+id/cv_collect_popular"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="10sp"
-            android:layout_marginLeft="11dp"
-            android:textColor="#333333"
-            android:lineSpacingExtra="3sp"
-            android:layout_centerHorizontal="true"
-            android:text="충북 보은"
-            />
-    <TextView
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:fontFamily="@font/ofl"
             android:includeFontPadding="false"
             android:id="@+id/rv_tv_collect_popular_program"
-            android:layout_below="@+id/rv_tv_collect_popular_city"
-            android:layout_width="wrap_content"
+            android:layout_below="@+id/cv_collect_popular"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:textSize="10sp"
             android:layout_marginLeft="11dp"

@@ -45,7 +45,9 @@ class SignUp2Activity : AppCompatActivity() {
         }
         //회원가입 완료버튼
         tv_signup2_finish.setOnClickListener {
-            SignupPost()//회원가입 통신
+           // SignupPost()//회원가입 통신
+            startActivity<LoginActivity>()
+            finish()
 
         }
     }

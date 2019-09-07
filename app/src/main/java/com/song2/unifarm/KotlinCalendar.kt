@@ -36,11 +36,22 @@ import com.prolificinteractive.materialcalendarview.CalendarDay
 
 import android.support.v4.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.util.Log
+import com.song2.unifarm.Adapter.CollectViewPopularRecyclerViewAdapter
+import com.song2.unifarm.Network.ApplicationController
+import com.song2.unifarm.Network.NetworkService
+import org.jetbrains.anko.toast
+import retrofit2.Call
+import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
 
 class KotlinCalendar : AppCompatActivity() {
+    val networkService: NetworkService by lazy {
+        ApplicationController.instance.networkService
+    }
+
     lateinit var commingActivityRecyclerViewAdapter: CommingActivityRecyclerViewAdapter
     var CommingdataList: ArrayList<CommingActivityData> = ArrayList()
 
@@ -51,39 +62,15 @@ class KotlinCalendar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
-        var calendarView = findViewById(R.id.calendar_view) as MaterialCalendarView
-
-
         // initViews()
-        var dates: ArrayList<CalendarDay> = ArrayList();
 
-        var date = CalendarDay.from(2019, 8, 10)
-        var date2 = CalendarDay.from(2019, 8, 8)
-        var date3 = CalendarDay.from(2019, 8, 14)
-        dates.add(date)
-        dates.add(date2)
-        dates.add(date3)
-        calendarView.addDecorators(SundayDecorator(), SaturdayDecorator(), OneDayDecorator())
-        calendarView.addDecorator(EventDecorator(Color.RED, dates, this))
 
-        CommingdataList.add(CommingActivityData("충북 보은 마을 재생 프로젝트", "D-2", "2019.09.08 토"))
-        CommingdataList.add(CommingActivityData("익산시 농기계 수리 농활", "D-4", "2019.09.10 월"))
-        CommingdataList.add(CommingActivityData("고성 초등학교 SW 멘토링", "D-8", "2019.09.14 금"))
-        commingActivityRecyclerViewAdapter = CommingActivityRecyclerViewAdapter(this, CommingdataList)
-        rv_calendar_comming.adapter = commingActivityRecyclerViewAdapter
-        rv_calendar_comming.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        endataList.add(EndActivityData("충북 보은 마을 재생 프로젝트", "D-5", "2019.08.16 금"))
-        endataList.add(EndActivityData("익산시 농기계 수리 농활", "D-15", "2019.09.16 금"))
-        endataList.add(EndActivityData("고성 초등학교 SW 멘토링", "D-30", "2019.10.16 금"))
-        endActivityRecyclerViewAdapter = EndActivityRecyclerViewAdapter(this, endataList)
-        rv_calendar_end.adapter = endActivityRecyclerViewAdapter
-        rv_calendar_end.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
         iv_collect_view_home_1.setOnClickListener {
             finish()
         }
-
+        getUserProgramResponse()
     }
 
 
@@ -122,4 +109,43 @@ class KotlinCalendar : AppCompatActivity() {
               else -> return super.onOptionsItemSelected(item)
           }
       }*/
+    fun getUserProgramResponse(){
+        val getUserProgramResponse = networkService.getUserProgram(
+            "application/json",
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1bmlmYXJtIiwidXNlcl9JZHgiOjl9.2FguegbBxWfn_MvGHkdQzpssoBXh-GWvQQInVZBuZgE")
+
+        getUserProgramResponse.enqueue(object : retrofit2.Callback<GetUserProgramResponse> {
+            override fun onFailure(call: Call<GetUserProgramResponse>, t: Throwable) {
+                Log.e("getProgramsMajorResponse fail", t.toString())
+            }
+
+            override fun onResponse(call: Call<GetUserProgramResponse>, response: Response<GetUserProgramResponse>) {
+                if (response.isSuccessful) {
+                    endataList= response.body()!!.data.programEnd
+                    CommingdataList=response.body()!!.data.programIng
+                    commingActivityRecyclerViewAdapter = CommingActivityRecyclerViewAdapter(this@KotlinCalendar, CommingdataList)
+                    rv_calendar_comming.adapter = commingActivityRecyclerViewAdapter
+                    rv_calendar_comming.layoutManager = LinearLayoutManager(this@KotlinCalendar, LinearLayoutManager.VERTICAL, false)
+                    endActivityRecyclerViewAdapter = EndActivityRecyclerViewAdapter(this@KotlinCalendar, endataList)
+                    rv_calendar_end.adapter = endActivityRecyclerViewAdapter
+                    rv_calendar_end.layoutManager = LinearLayoutManager(this@KotlinCalendar, LinearLayoutManager.VERTICAL, false)
+
+                    var calendarView = findViewById(R.id.calendar_view) as MaterialCalendarView
+                    calendarView.addDecorators(SundayDecorator(), SaturdayDecorator(), OneDayDecorator())
+                    var dates: ArrayList<CalendarDay> = ArrayList();
+
+                    for(i in 0..response.body()!!.data.programIng.size-1) {
+                        dates.add(CalendarDay.from(Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(0,3))), Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(6,6)))-1, Integer.parseInt(response.body()!!.data!!.programIng!![i].startDate!!.slice(IntRange(8,9)))))
+                      }
+
+
+
+
+
+                    calendarView.addDecorator(EventDecorator(Color.RED, dates, this@KotlinCalendar))
+
+                }
+            }
+        })
+    }
 }
