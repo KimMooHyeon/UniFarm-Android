@@ -58,6 +58,7 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
 
         rl_detailed_act_apply_btn.setOnClickListener {
             startActivity<SelectDateActivity>()
+            this.overridePendingTransition(0, R.anim.fade_out)
             Log.e("rl_detailed_act_apply_btn",programdate_.toString())
         }
 
