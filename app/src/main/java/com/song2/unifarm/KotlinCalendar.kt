@@ -66,16 +66,16 @@ class KotlinCalendar : AppCompatActivity() {
         calendarView.addDecorators(SundayDecorator(), SaturdayDecorator(), OneDayDecorator())
         calendarView.addDecorator(EventDecorator(Color.RED, dates, this))
 
-        CommingdataList.add(CommingActivityData("충북 보은 마을 재생 프로젝트", "D-2", "2019.09.08 토"))
-        CommingdataList.add(CommingActivityData("익산시 농기계 수리 농활", "D-4", "2019.09.10 월"))
-        CommingdataList.add(CommingActivityData("고성 초등학교 SW 멘토링", "D-8", "2019.09.14 금"))
+        CommingdataList.add(CommingActivityData("충북 보은 마을 재생 프로젝트", "D-1", "2019.09.08 토"))
+        CommingdataList.add(CommingActivityData("익산시 농기계 수리 농활", "D-3", "2019.09.10 월"))
+        CommingdataList.add(CommingActivityData("고성 초등학교 SW 멘토링", "D-7", "2019.09.14 금"))
         commingActivityRecyclerViewAdapter = CommingActivityRecyclerViewAdapter(this, CommingdataList)
         rv_calendar_comming.adapter = commingActivityRecyclerViewAdapter
         rv_calendar_comming.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        endataList.add(EndActivityData("충북 보은 마을 재생 프로젝트", "D-5", "2019.08.16 금"))
-        endataList.add(EndActivityData("익산시 농기계 수리 농활", "D-15", "2019.09.16 금"))
-        endataList.add(EndActivityData("고성 초등학교 SW 멘토링", "D-30", "2019.10.16 금"))
+        endataList.add(EndActivityData("충북 보은 마을 재생 프로젝트", "D+35", "2019.08.16 목"))
+        endataList.add(EndActivityData("익산시 농기계 수리 농활", "D+2", "2019.09.5 목"))
+        endataList.add(EndActivityData("고성 초등학교 SW 멘토링", "D+1", "2019.09.6 금"))
         endActivityRecyclerViewAdapter = EndActivityRecyclerViewAdapter(this, endataList)
         rv_calendar_end.adapter = endActivityRecyclerViewAdapter
         rv_calendar_end.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)

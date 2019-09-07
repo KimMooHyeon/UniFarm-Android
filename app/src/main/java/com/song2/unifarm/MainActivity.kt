@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity<CollectViewActivity>()
             }
             R.id.nav_bookmark -> {
-                startActivity<SettingActivity>()
+                startActivity<BookMarkActivity>()
 
             }
             R.id.nav_calendar -> {

@@ -158,8 +158,8 @@
                                 android:textColor="#333333"
                                 android:lineSpacingExtra="2sp"
                                 android:gravity="center_horizontal"
-                                android:text="다가오는 활동"
-                                android:textStyle="bold"/>
+                                android:text="              D-1"
+                                />
                         <TextView
                                 android:layout_marginTop="6dp"
                                 android:includeFontPadding="false"
@@ -171,7 +171,7 @@
                                 android:textColor="#4e4e4e"
                                 android:lineSpacingExtra="2sp"
                                 android:gravity="center_horizontal"
-                                android:text="없음"/>
+                                android:text="충북 보은 마을 재생 프로젝트\n 2019.09.08"/>
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
