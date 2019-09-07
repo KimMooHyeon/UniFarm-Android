@@ -10,6 +10,15 @@ import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.kakao.kakaolink.v2.KakaoLinkResponse
+import com.kakao.kakaolink.v2.KakaoLinkService
+import com.kakao.message.template.ButtonObject
+import com.kakao.message.template.ContentObject
+import com.kakao.message.template.FeedTemplate
+import com.kakao.message.template.LinkObject
+import com.kakao.network.ErrorResult
+import com.kakao.network.callback.ResponseCallback
+import com.kakao.util.helper.log.Logger
 import com.song2.unifarm.Adapter.CalenderListAdapter
 import com.song2.unifarm.Network.ApplicationController
 import com.song2.unifarm.Network.GET.GetDetaliedResponse
@@ -27,6 +36,9 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
 
     lateinit var networkService: NetworkService
 
+    var title = ""
+    var thumbnail = ""
+
     var dateData: ArrayList<String> = ArrayList<String>()
     var programdate_ : ArrayList<ProgramDate> = ArrayList<ProgramDate>()
 
@@ -40,7 +52,6 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailed)
-
 
 
         idxxx = intent.getIntExtra("idxxx",1)
@@ -59,6 +70,10 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
         rl_detailed_act_apply_btn.setOnClickListener {
             startActivity<SelectDateActivity>()
             Log.e("rl_detailed_act_apply_btn",programdate_.toString())
+        }
+
+        rl_detailed_act_share_btn.setOnClickListener {
+            sendLink()
         }
 
     }
@@ -130,9 +145,11 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
         if(programData.program != null){
             //program
             tv_detailed_act_title.setText(programData.program.title)
+            title = programData.program.title
             tv_detailed_act_contents.setText(programData.program.body)
             tv_detailed_act_sub_title.setText((programData.program.subTitle))
 
+            thumbnail = programData.program.thumbnail
             Glide.with(ctx).load(programData.program.thumbnail).into(iv_detailed_act_title_img)
             tv_detailed_act_location.setText(programData.program.address)
             tv_detailed_act_entry.setText(programData.program.target)
@@ -182,6 +199,43 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
             }
 
         }
+    }
+
+    //카카오톡 링크 공유
+    private fun sendLink() {
+
+
+        var images: String?
+
+        images = thumbnail
+
+        val params = FeedTemplate
+            .newBuilder(
+                ContentObject.newBuilder(title
+                    ,
+                    images,
+                    LinkObject.newBuilder().setWebUrl("")
+                        .setMobileWebUrl("").build())
+                    .setDescrption("나에게 딱 맞는 농활, 유니팜(UniFarm)")
+
+                    .build())
+
+            .addButton(
+                ButtonObject("유니팜 앱으로 열기", LinkObject.newBuilder()
+                    //.setWebUrl("'https://developers.kakao.com")
+                    //                    .setAndroidExecutionParams("boardIDValue=" + dataList.boardId)
+                    .build())
+            )
+            .build()
+
+        KakaoLinkService.getInstance().sendDefault(ctx, params, object : ResponseCallback<KakaoLinkResponse>() {
+
+            override fun onFailure(errorResult: ErrorResult) {
+                Logger.e(errorResult.toString())
+            }
+
+            override fun onSuccess(result: KakaoLinkResponse) {}
+        })
     }
 
 

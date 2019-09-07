@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/rl_search_result_container"
+                android:paddingHorizontal="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="120dp">
+                android:layout_height="160dp">
 
     <ImageView
             android:id="@+id/iv_search_result_item_thumb_img"
             android:layout_marginVertical="25dp"
             android:layout_marginHorizontal="20dp"
-            android:layout_width="155dp" android:layout_height="80dp"
+            android:layout_width="155dp" android:layout_height="120dp"
             android:scaleType="fitXY"
             android:src="@drawable/bt_category3"/>
 

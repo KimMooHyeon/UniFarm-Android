@@ -122,7 +122,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginStart="20dp"
                 android:lineSpacingExtra="2sp"
-                android:text="검색결과   3건"
+                android:text="검색결과"
                 android:fontFamily="@font/oftb"
                 android:includeFontPadding="false"
                 android:textColor="#484848"
@@ -184,7 +184,7 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp" android:paddingVertical="20dp">
+            android:paddingHorizontal="6dp" android:paddingVertical="20dp">
         <TextView
                 android:id="@+id/tv_keyword"
                 android:layout_width="wrap_content"
@@ -204,7 +204,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_keyword"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="10dp"
                 android:columnCount="3" android:useDefaultMargins="true">
 
             <RelativeLayout

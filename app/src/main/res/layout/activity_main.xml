@@ -438,9 +438,9 @@
                       android:background="#f0f0f0"/>
 
                 <RelativeLayout
-                        android:paddingHorizontal="20dp"
                         android:layout_width="match_parent" android:layout_height="wrap_content">
                     <TextView
+                            android:layout_marginStart="40dp"
                             android:layout_marginTop="10dp"
                             android:id="@+id/tv_keyword"
                             android:layout_width="wrap_content"
