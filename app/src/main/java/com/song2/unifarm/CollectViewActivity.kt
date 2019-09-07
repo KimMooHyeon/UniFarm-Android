@@ -17,12 +17,15 @@ import com.song2.unifarm.Network.GET.GetProgramsResonse
 import com.song2.unifarm.Network.GET.ProgramData
 import com.song2.unifarm.Network.NetworkService
 import kotlinx.android.synthetic.main.activity_collect_view.*
+import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Response
 
 class CollectViewActivity : AppCompatActivity() {
+    val networkService: NetworkService by lazy {
+        ApplicationController.instance.networkService
+    }
 
-    lateinit var networkService: NetworkService
 
     lateinit var collectViewPopularRecyclerViewAdapter: CollectViewPopularRecyclerViewAdapter
     var CollectdataList: ArrayList<CollectPopularProgramData> = ArrayList()
@@ -32,7 +35,11 @@ class CollectViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_collect_view)
 
-        networkService = ApplicationController.instance.networkService
+        //테스트
+        tv_collect_popular_text.setOnClickListener {
+
+        }
+
 
         iv_collect_view_home.setOnClickListener {
             finish()
@@ -66,21 +73,16 @@ class CollectViewActivity : AppCompatActivity() {
         rv_recommend_program.adapter = recommendProgramRecyclerViewAdapter
 
 
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","인천광역시","공부하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","부산광역시","체험하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","서울특별시","취업하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","인천광역시","공부하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","부산광역시","봉사하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","서울특별시","취업하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","인천광역시","공부하기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","부산광역시","선행기"))
-        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","서울특별시","취업하기"))
+        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_01.jpg","인천광역시"))
+        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_02.jpg","부산광역시"))
+        CollectdataList.add(CollectPopularProgramData("https://project-youngwoo.s3.ap-northeast-2.amazonaws.com/program_03.jpg","서울특별시"))
         collectViewPopularRecyclerViewAdapter = CollectViewPopularRecyclerViewAdapter(this, CollectdataList)
         rv_collect_pupular.adapter = collectViewPopularRecyclerViewAdapter
         rv_collect_pupular.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
 
-        getProgramsMajorResponse()
-        getProgramsKeywordResponse()
+        //getProgramsMajorResponse()
+        //getProgramsKeywordResponse()
+        getPupularResponse()
     }
 
 
@@ -99,10 +101,7 @@ class CollectViewActivity : AppCompatActivity() {
                     val programData: ArrayList<ProgramData> = response.body()!!.data
                     Log.e("getProgramsMajorResponse success",programData.toString())
 
-                    if (programData != null) {
-                        //리사이클러뷰에 넣기
 
-                    }
                 }
             }
         })
@@ -123,13 +122,34 @@ class CollectViewActivity : AppCompatActivity() {
                     val programData: ArrayList<ProgramData> = response.body()!!.data
                     Log.e("getProgramsKeywordResponse success",programData.toString())
 
-                    if (programData != null) {
-                        //리사이클러뷰에 넣기
 
-                    }
                 }
             }
         })
     }
+
+    fun getPupularResponse(){
+        val getPopularProgram = networkService.getPopularProgram(
+            "application/json",
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1bmlmYXJtIiwidXNlcl9JZHgiOjl9.2FguegbBxWfn_MvGHkdQzpssoBXh-GWvQQInVZBuZgE")
+
+        getPopularProgram.enqueue(object : retrofit2.Callback<GetPopularProgram> {
+            override fun onFailure(call: Call<GetPopularProgram>, t: Throwable) {
+                Log.e("getProgramsMajorResponse fail", t.toString())
+            }
+
+            override fun onResponse(call: Call<GetPopularProgram>, response: Response<GetPopularProgram>) {
+                if (response.isSuccessful) {
+                    CollectdataList= response.body()!!.data
+                    collectViewPopularRecyclerViewAdapter = CollectViewPopularRecyclerViewAdapter(this@CollectViewActivity, CollectdataList)
+                    rv_collect_pupular.adapter = collectViewPopularRecyclerViewAdapter
+                    rv_collect_pupular.layoutManager = LinearLayoutManager(this@CollectViewActivity,LinearLayoutManager.HORIZONTAL,false)
+
+                }
+            }
+        })
+    }
+
+
 
 }

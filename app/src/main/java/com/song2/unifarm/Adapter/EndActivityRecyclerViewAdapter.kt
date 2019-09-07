@@ -25,8 +25,11 @@ class EndActivityRecyclerViewAdapter(var ctx: Context, var dataList: ArrayList<E
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder.tv_end_date.text=dataList[position].date.toString()
-        holder.tv_end_programname.text=dataList[position].program_name.toString()
+        holder.tv_end_date.text=dataList[position].startDate.toString()
+        holder.tv_end_programname.text=dataList[position].title.toString()
+        if(dataList[position].dday.toString()=="-1"){
+            holder.tv_end_dday.visibility=View.INVISIBLE
+        }
         holder.tv_end_dday.text=dataList[position].dday.toString()
         holder.tv_end_act_more_btn.setOnClickListener {
            ctx.startActivity<ReviewActivity>() //후기 쓰러가기

@@ -7,6 +7,8 @@ import com.song2.unifarm.Network.GET.GetSearchResponse
 import com.song2.unifarm.Network.POST.*
 import com.song2.unifarm.Data.keywordsList
 import com.song2.unifarm.Data.userData2
+import com.song2.unifarm.GetPopularProgram
+import com.song2.unifarm.GetUserProgramResponse
 import com.song2.unifarm.Network.GET.getCheckEmailResponse
 import com.song2.unifarm.Network.POST.PostLoginResponse
 import com.song2.unifarm.Network.POST.PostSignupResponse
@@ -68,5 +70,18 @@ interface NetworkService {
         @Header("Content-Type") content_type: String,
         @Query("email") email: String
     ): Call<getCheckEmailResponse>
+
+    @GET("/programs/popular")
+    fun getPopularProgram(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") authorization: String
+    ): Call<GetPopularProgram>
+
+    @GET("/programs/mine")
+    fun getUserProgram(
+        @Header("Content-Type") content_type: String,
+        @Header("Authorization") authorization: String
+    ): Call<GetUserProgramResponse>
+
 
 }
