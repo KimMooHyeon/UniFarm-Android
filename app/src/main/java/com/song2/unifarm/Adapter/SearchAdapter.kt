@@ -10,7 +10,9 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.song2.unifarm.Data.SearchResult
+import com.song2.unifarm.DetailedActivity
 import com.song2.unifarm.R
+import org.jetbrains.anko.startActivity
 
 class SearchAdapter(val ctx : Context, val searchData : ArrayList<SearchResult>) : RecyclerView.Adapter<SearchAdapter.Holder>() {
 
@@ -25,6 +27,8 @@ class SearchAdapter(val ctx : Context, val searchData : ArrayList<SearchResult>)
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder.container.setOnClickListener {
+            //idx 틀림!!!
+            ctx.startActivity<DetailedActivity>("idxxx" to searchData[position].idxxx)
         }
 
         Glide.with(ctx).load(searchData[position].thumb).into(holder.thumb)

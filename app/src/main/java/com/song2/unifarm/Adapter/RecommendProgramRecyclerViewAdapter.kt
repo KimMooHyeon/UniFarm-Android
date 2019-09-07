@@ -11,7 +11,9 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.song2.unifarm.Data.CollectPopularProgramData
 import com.song2.unifarm.Data.RecommendCollectViewData
+import com.song2.unifarm.DetailedActivity
 import com.song2.unifarm.R
+import org.jetbrains.anko.startActivity
 
 class RecommendProgramRecyclerViewAdapter(var ctx: Context, var dataList: ArrayList<RecommendCollectViewData>) :
     RecyclerView.Adapter<RecommendProgramRecyclerViewAdapter.Holder>() {
@@ -26,6 +28,11 @@ class RecommendProgramRecyclerViewAdapter(var ctx: Context, var dataList: ArrayL
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
+
+        holder.rl_recommend_program_allview.setOnClickListener {
+            ctx.startActivity<DetailedActivity>("idxxx" to dataList[position].idxxx)
+        }
+
         holder.rv_tv_program_name.text=dataList[position].program_name
         holder.rv_iv_program_hashtag.text=dataList[position].hashTag
         holder.rv_iv_program_nownumber.text=dataList[position].now_number

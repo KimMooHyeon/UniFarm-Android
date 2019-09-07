@@ -30,6 +30,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
+        tv_main_act_more_btn.setOnClickListener {
+            startActivity<CollectViewActivity>()
+        }
+
         setTitle("")
         navView.setNavigationItemSelectedListener(this)
 

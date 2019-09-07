@@ -48,6 +48,7 @@ class SelectDateActivity : AppCompatActivity() {
             if(isIn ==1){
                 startActivity<CompleteActivity>()
                 postProgramResponse()
+                finish()
             }else{
                 toast("회차를 선택 해 주세요!")
             }

@@ -10,6 +10,8 @@ import com.song2.unifarm.Network.ApplicationController
 import com.song2.unifarm.Network.NetworkService
 import com.song2.unifarm.Network.POST.PostProgram
 import com.song2.unifarm.Network.POST.PostResponse
+import kotlinx.android.synthetic.main.activity_complete.*
+import org.jetbrains.anko.startActivity
 import retrofit2.Call
 import retrofit2.Response
 
@@ -22,7 +24,11 @@ class CompleteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complete)
 
-        networkService = ApplicationController.instance.networkService
+
+        rl_complete_act_togoCalendar.setOnClickListener {
+            startActivity<KotlinCalendar>()
+            finish()
+        }
 
     }
 

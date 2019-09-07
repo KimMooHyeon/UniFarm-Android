@@ -1,7 +1,7 @@
 package com.song2.unifarm.Adapter
 
 import android.content.Context
-import android.content.Intent
+import org.jetbrains.anko.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +12,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.song2.unifarm.Data.CollectPopularProgramData
+import com.song2.unifarm.DetailedActivity
 import com.song2.unifarm.R
 import java.util.regex.Pattern
 
@@ -33,6 +34,9 @@ class CollectViewPopularRecyclerViewAdapter(var ctx: Context, var dataList: Arra
         holder.rv_tv_collect_popular_program.text=dataList[position].program.toString()
       holder.rv_collect_allview.setOnClickListener {
           //전체 아이템 클릭 (프로그램으로 이동하는거 만들기!)
+          //idx 틀림!!!
+          //ctx.startActivity<DetailedActivity>("idxxx" to position)
+
       }
         Glide.with(ctx)
             .load(dataList[position].program_img)

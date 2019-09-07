@@ -3,6 +3,7 @@ package com.song2.unifarm
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.opengl.Visibility
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -22,17 +23,16 @@ import com.song2.unifarm.Network.GET.ProgramDataN
 import com.song2.unifarm.Network.NetworkService
 import kotlinx.android.synthetic.main.activity_search.*
 import org.jetbrains.anko.ctx
-import org.jetbrains.anko.support.v4.ctx
-import org.jetbrains.anko.support.v4.toast
 import org.jetbrains.anko.toast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SearchActivity : AppCompatActivity(){
+class SearchActivity : AppCompatActivity() {
+
+    var isSuccesssssss = 0
     lateinit var searchData: ArrayList<String>
     lateinit var searchResultData: ArrayList<SearchResult>
-
 
     lateinit var searchDbHelper: DBSearchHelper
     lateinit var searchDB: SQLiteDatabase
@@ -45,6 +45,8 @@ class SearchActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+
+        searchResultData = ArrayList()
 
         searchDbHelper = DBSearchHelper(ctx)
         searchDB = searchDbHelper.writableDatabase
@@ -64,8 +66,12 @@ class SearchActivity : AppCompatActivity(){
         et_search_act_search_contents.setOnEditorActionListener({ textView, actionId, keyEvent ->
             var handled = false
 
+            rl_search_result_non_container.visibility = View.GONE
+
+
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 ll_search_result_container.visibility = View.GONE //검색결과
+
 
                 var keyword = et_search_act_search_contents.text.toString()
                 if (keyword.equals(""))
@@ -75,7 +81,7 @@ class SearchActivity : AppCompatActivity(){
                     insertKeyword(keyword, searchDbHelper)
 
                     searchDbHelper = DBSearchHelper(ctx)
-                    searchDB= searchDbHelper.writableDatabase
+                    searchDB = searchDbHelper.writableDatabase
 
                     insertSearchHistoryData(searchDB)
 
@@ -90,19 +96,27 @@ class SearchActivity : AppCompatActivity(){
 
         // Edittext focus ON
         et_search_act_search_contents.setOnFocusChangeListener { view, hasFocus ->
+
+            rl_search_result_non_container.visibility = View.GONE
+
             if (hasFocus) {
+                if(isSuccesssssss == -1){
+                    isSuccesssssss = 0
+                    rl_search_result_non_container.visibility = View.GONE
+                }
+
                 ll_search_result_container.visibility = View.GONE //검색결과
 
                 insertSearchHistoryData(searchDB)
                 rv_history_search.visibility = View.VISIBLE
 
                 searchDbHelper = DBSearchHelper(ctx)
-                searchDB= searchDbHelper.writableDatabase
+                searchDB = searchDbHelper.writableDatabase
 
                 insertSearchHistoryData(searchDB)
 
                 searchEditTextFocusOn()
-            }else{
+            } else {
                 rv_history_search.visibility = View.GONE
                 ll_search_result_container.visibility = View.VISIBLE //검색결과
 
@@ -117,37 +131,65 @@ class SearchActivity : AppCompatActivity(){
 
     }
 
-    fun getSearchResponse(keyword: String){
+    fun getSearchResponse(keyword: String) {
         var networkService: NetworkService = ApplicationController.instance.networkService
-        var getSearchResponse: Call<GetSearchResponse> = networkService.getSearchResponse("application/json",keyword)
+        var getSearchResponse: Call<GetSearchResponse> = networkService.getSearchResponse("application/json", keyword)
         getSearchResponse.enqueue(object : Callback<GetSearchResponse> {
             override fun onResponse(call: Call<GetSearchResponse>?, response: Response<GetSearchResponse>?) {
                 Log.v("TAG", "검색 - 서버 통신 연결")
                 if (response!!.isSuccessful) {
-                    var temp: ProgramDataN = response.body()!!.data
-                    Log.e("검색 성공!",temp.toString())
+                    var temp: ArrayList<ProgramDataN> = response.body()!!.data
+                    Log.e("검색 성공!", temp.toString())
 
+                    var str: String = ""
                     if (temp != null) {
 
-                        temp.keywordProgram
+                        lateinit var searchResult: SearchResult
+                        searchResultData.clear()
+
+                        for (i in temp.indices) {
+/*                            //Log.e("f로그!!! keywordProgram:",temp[i].keywordProgram[0].toString())
+                            Log.e("f로그!!! keywordProgram:",temp[i].keywordProgram[1].toString())
+                            Log.e("f로그!!! keywordProgram:",temp[i].keywordProgram[2].toString())
+                            Log.e("f로그!!! keywordProgram:",temp[i].keywordProgram[3].toString())*/
+                            //Log.e("f로그!!! keywordProgram:",temp[i].toString())
+                            //Log.e("f로그!!! keywordProgram:",temp[i].toString())
+
+                            str = temp[i].keywordPrograms[0].info + " " + temp[i].keywordPrograms[1].info + " " + temp[i].keywordPrograms[2].info + " " + temp[i].keywordPrograms[3].info + " " + temp[i].keywordPrograms[4].info
+                            searchResult = SearchResult(temp[i].program.programIdx,temp[i].program.thumbnail, temp[i].program.title, str, false)
+                            searchResultData.add(searchResult)
+                        }
+
+                        searchAdapter = SearchAdapter(ctx, searchResultData)
+                        searchAdapter .notifyDataSetChanged()
+                        rv_search_act_result.adapter = searchAdapter
+                        rv_search_act_result.layoutManager = LinearLayoutManager(ctx)
 
                     } else {
-
+                        rl_search_result_non_container.visibility = View.VISIBLE
+                        ll_search_result_container.visibility = View.GONE // 중요!
                     }
                 } else {
                     Log.v("TAG", " 검색 실패")
+
+                    isSuccesssssss = -1
+                    rl_search_result_non_container.visibility = View.VISIBLE
 
                 }
             }
 
             override fun onFailure(call: Call<GetSearchResponse>?, t: Throwable?) {
                 Log.v("TAG", "통신 실패 = " + t.toString())
+
+                isSuccesssssss = -1
+                rl_search_result_non_container.visibility = View.VISIBLE
+
             }
         })
 
     }
 
-    fun setHistoryRecyclerView(){
+    fun setHistoryRecyclerView() {
 
     }
 
@@ -158,19 +200,19 @@ class SearchActivity : AppCompatActivity(){
         //searchData.add("# 농활")
         //searchData.add("# 감자캐기")
 
-        searchHistoryAdapter = SearchHistoryAdapter(ctx, this ,searchData)
+        searchHistoryAdapter = SearchHistoryAdapter(ctx, this, searchData)
         rv_history_search.adapter = searchHistoryAdapter
         rv_history_search.layoutManager = LinearLayoutManager(ctx)
 
         rv_history_search.visibility = View.VISIBLE
     }
 
-    fun deleteAllHistoryData(){
+    fun deleteAllHistoryData() {
 
         searchDbHelper.deleteAll()
         searchData.clear()
 
-        searchHistoryAdapter = SearchHistoryAdapter(ctx, this ,searchData)
+        searchHistoryAdapter = SearchHistoryAdapter(ctx, this, searchData)
         rv_history_search.adapter = searchHistoryAdapter
         rv_history_search.layoutManager = LinearLayoutManager(ctx)
         rv_history_search.isNestedScrollingEnabled = false
@@ -182,7 +224,7 @@ class SearchActivity : AppCompatActivity(){
 
     fun insertSearchHistoryData(searchDB: SQLiteDatabase) {
 
-        Log.e("insertSearchHistoryData","insert insert insert!!!!!")
+        Log.e("insertSearchHistoryData", "insert insert insert!!!!!")
 
         cursor = searchDB.rawQuery("SELECT * FROM SEARCH ORDER BY _id DESC;", null)
 
@@ -202,7 +244,7 @@ class SearchActivity : AppCompatActivity(){
 
         //rv_history_search.visibility = View.GONE
 
-        searchHistoryAdapter = SearchHistoryAdapter(ctx, this,searchData)
+        searchHistoryAdapter = SearchHistoryAdapter(ctx, this, searchData)
         searchHistoryAdapter.notifyDataSetChanged()
         rv_history_search.adapter = searchHistoryAdapter
         rv_history_search.layoutManager = LinearLayoutManager(ctx)
@@ -211,7 +253,7 @@ class SearchActivity : AppCompatActivity(){
 
     fun insertKeyword(keyword: String, searchDbHelper: DBSearchHelper) {
 
-        Log.e("insertKeyword","insert insert insert!!!!!")
+        Log.e("insertKeyword", "insert insert insert!!!!!")
         //이미 존재 할 경우, 이전데이터 지우고 insert
         if (searchDbHelper.search(keyword)) {
             searchDbHelper.delete(keyword)
@@ -225,7 +267,7 @@ class SearchActivity : AppCompatActivity(){
         searchDbHelper.delete(keyword)
     }
 
-    fun setKeyword(keyword: String){
+    fun setKeyword(keyword: String) {
         et_search_act_search_contents.setText(keyword)
     }
 
@@ -241,30 +283,33 @@ class SearchActivity : AppCompatActivity(){
         imm.hideSoftInputFromWindow(et_search_act_search_contents.windowToken, 0)
     }
 
-    fun setSearchResult(){
+    fun setSearchResult() {
 
-        var searchResult = SearchResult("https://t1.daumcdn.net/cfile/tistory/2442394558BBBD1934",
+        var searchResult = SearchResult(
+            1333,
+            "https://t1.daumcdn.net/cfile/tistory/2442394558BBBD1934",
             "강원도 농촌 체험",
             "#후기 #농혐 #감자캐기 #체험",
-            false         )
+            false
+        )
 
-        var searchResult1 = SearchResult("https://t1.daumcdn.net/cfile/tistory/2442394558BBBD1934",
+        var searchResult1 = SearchResult(
+            1222,
+            "https://t1.daumcdn.net/cfile/tistory/2442394558BBBD1934",
             "전공 체험(컴퓨터공학과)",
             "#코딩 #교육 #초등학생 #공학",
-            true         )
-
-
-        searchResultData = ArrayList()
+            true
+        )
 
         searchResultData.add(searchResult)
         searchResultData.add(searchResult1)
 
-        searchAdapter = SearchAdapter(ctx,searchResultData)
+        searchAdapter = SearchAdapter(ctx, searchResultData)
         rv_search_act_result.adapter = searchAdapter
         rv_search_act_result.layoutManager = LinearLayoutManager(ctx)
     }
 
-    fun setSearchResultView(){
+    fun setSearchResultView() {
         ll_search_result_container.visibility = View.VISIBLE //검색결과
 
     }

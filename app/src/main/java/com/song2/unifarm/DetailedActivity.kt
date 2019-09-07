@@ -42,7 +42,11 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
         setContentView(R.layout.activity_detailed)
 
 
+
         idxxx = intent.getIntExtra("idxxx",1)
+        Log.e("projIdx idxxx::", idxxx.toString())
+
+
         networkService = ApplicationController.instance.networkService
 
         getDetailedResponse()
@@ -106,10 +110,15 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onResponse(call: Call<GetDetaliedResponse>, response: Response<GetDetaliedResponse>) {
                 if (response.isSuccessful) {
                     val programData: ProgramData = response.body()!!.data
-                    Log.e("programData success",programData.toString())
 
                     if (programData != null) {
+                        Log.e("programData success",programData.toString())
+
                         setProgramData(programData)
+                    }else{
+                        Log.e("programData success :: ","데이터 없음!")
+
+
                     }
                 }
             }
@@ -145,12 +154,33 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         if(programData.keywords != null) {
+
             //keywords
-            tv_detailed_act_keyword0.setText("#"+programData.keywords[0].info)
-            tv_detailed_act_keyword1.setText("#"+programData.keywords[1].info)
-            tv_detailed_act_keyword2.setText("#"+programData.keywords[2].info)
-            tv_detailed_act_keyword3.setText("# "+programData.keywords[3].info)
-            tv_detailed_act_keyword4.setText("# "+programData.keywords[4].info)
+
+            if(programData.keywords.size<5){
+                for(i in programData.keywords.indices){
+                    if(i==0){
+                        tv_detailed_act_keyword0.setText("#"+programData.keywords[0].info)
+                    }else if(i==1){
+                        tv_detailed_act_keyword1.setText("#"+programData.keywords[1].info)
+                    }else if(i==2){
+                        tv_detailed_act_keyword2.setText("#"+programData.keywords[2].info)
+                    }else if(i==3){
+                        tv_detailed_act_keyword3.setText("#"+programData.keywords[3].info)
+                    }else if(i==4){
+                        tv_detailed_act_keyword4.setText("#"+programData.keywords[4].info)
+                    }
+                }
+
+            }else
+            {
+                tv_detailed_act_keyword0.setText("#"+programData.keywords[0].info)
+                tv_detailed_act_keyword1.setText("#"+programData.keywords[1].info)
+                tv_detailed_act_keyword2.setText("#"+programData.keywords[2].info)
+                tv_detailed_act_keyword3.setText("# "+programData.keywords[3].info)
+                tv_detailed_act_keyword4.setText("# "+programData.keywords[4].info)
+            }
+
         }
     }
 
