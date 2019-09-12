@@ -87,6 +87,7 @@
     <EditText
             android:id="@+id/edt_review_review"
             android:hint="입력해주세요"
+            android:gravity="top"
             android:fontFamily="@font/otfr"
             android:includeFontPadding="false"
             android:textSize="14sp"

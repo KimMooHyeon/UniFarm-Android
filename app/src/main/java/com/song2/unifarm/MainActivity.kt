@@ -14,12 +14,29 @@ import android.view.MenuInflater
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
+import android.support.v4.app.SupportActivity
+import android.support.v4.app.SupportActivity.ExtraData
+import android.support.v4.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.support.v4.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import java.text.SimpleDateFormat
+
+import android.support.v4.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import java.util.*
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val now = System.currentTimeMillis()
+        val date = Date(now)
+        val sdf = SimpleDateFormat("HH시 mm분")
+        val getTime = sdf.format(date)
+        tv_main_act_real_time.text=getTime+" 기준"
         tv_main_act_now_title.isSelected=true
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -29,6 +46,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+
+        tv_main_act_more_btn.setOnClickListener {
+            startActivity<CollectViewActivity>()
+        }
 
         setTitle("")
         navView.setNavigationItemSelectedListener(this)
@@ -43,10 +64,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         rl_main_act_major_btn.setOnClickListener {
             startActivity<DetailedActivity>("idxxx" to 1)
+            this.overridePendingTransition(0, R.anim.fade_out)
         }
 
         rl_main_act_keyword_btn.setOnClickListener {
-            startActivity<DetailedActivity>("idxxx" to 2)
+            startActivity<DetailedActivity>("idxxx" to 13)
+            this.overridePendingTransition(0, R.anim.fade_out)
         }
 
     }
@@ -84,7 +107,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity<CollectViewActivity>()
             }
             R.id.nav_bookmark -> {
-                startActivity<SettingActivity>()
+                startActivity<BookMarkActivity>()
 
             }
             R.id.nav_calendar -> {

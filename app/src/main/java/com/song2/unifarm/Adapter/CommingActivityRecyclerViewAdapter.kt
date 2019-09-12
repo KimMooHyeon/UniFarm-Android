@@ -29,9 +29,12 @@ class CommingActivityRecyclerViewAdapter(var ctx: Context, var dataList: ArrayLi
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
-        holder.tv_comming_date.text=dataList[position].date.toString()
-        holder.tv_comming_programname.text=dataList[position].program_name.toString()
-        holder.tv_comming_dday.text=dataList[position].dday.toString()
+        holder.tv_comming_date.text=dataList[position].startDate.toString()
+        holder.tv_comming_programname.text=dataList[position].title.toString()
+        if(dataList[position].dday.toString()== "-1"){
+            holder.tv_comming_dday.visibility=View.INVISIBLE
+        }
+        holder.tv_comming_dday.text="D-"+dataList[position].dday.toString()
         holder.tv_comming_act_more_btn.setOnClickListener {
             //더보기 아이템 클릭 (프로그램으로 이동하는거 만들기!)
         }

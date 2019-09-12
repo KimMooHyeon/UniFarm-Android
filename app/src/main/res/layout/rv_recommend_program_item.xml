@@ -9,7 +9,7 @@
             android:id="@+id/rv_iv_program_img"
             android:layout_width="155dp"
             android:layout_height="80dp"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             android:background="@drawable/search_shape"
             android:src="@drawable/bt_apply"/>
 
@@ -24,6 +24,8 @@
             android:includeFontPadding="false"
             android:lineSpacingExtra="1sp"
             android:text="충북 보은 마을재생 프로젝트"
+            android:layout_alignStart="@+id/rv_iv_program_img"
+            android:layout_alignEnd="@+id/rv_iv_program_img"
             android:textColor="#333333"
             android:textSize="12sp"
     />
@@ -36,6 +38,8 @@
             android:fontFamily="@font/ofl"
             android:includeFontPadding="false"
             android:lineSpacingExtra="1sp"
+            android:layout_alignStart="@+id/rv_iv_program_img"
+            android:layout_alignEnd="@+id/rv_iv_program_img"
             android:text="#충북 #미대 #시각디자인 #현대미술 #금손"
             android:textColor="#212121"
             android:textSize="7sp"
@@ -74,6 +78,7 @@
             android:layout_below="@+id/rv_iv_program_hashtag"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/rv_iv_program_slash"
+            android:layout_alignEnd="@+id/rv_iv_program_img"
             android:fontFamily="@font/otfeb"
             android:includeFontPadding="false"
             android:lineSpacingExtra="1sp"
@@ -82,6 +87,7 @@
             android:textSize="13sp"
     />
     <TextView
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rv_iv_program_hashtag"

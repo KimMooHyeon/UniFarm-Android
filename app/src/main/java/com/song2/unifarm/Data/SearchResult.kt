@@ -1,6 +1,7 @@
 package com.song2.unifarm.Data
 
-class SearchResult (
+class SearchResult(
+    var idxxx : Int,
     var thumb : String,
     var title : String,
     var hashtag : String,

@@ -15,7 +15,7 @@
     android:layout_height="100dp"/>
 <FrameLayout
     android:id="@+id/fl_login_id"
-    android:layout_marginTop="46dp"
+    android:layout_marginTop="72dp"
     android:layout_below="@+id/iv_login_logo"
     android:layout_centerHorizontal="true"
     android:background="@drawable/box_id"
@@ -83,7 +83,7 @@
     <TextView
         android:id="@+id/tv_login_login"
         android:background="@drawable/bt_login"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/fl_login_pw"
         android:layout_width="280dp"
@@ -104,7 +104,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="13sp"
-        android:layout_marginLeft="89dp"
+        android:layout_marginLeft="105dp"
         android:layout_marginTop="18dp"
         android:textColor="#6e6e6e"
             android:includeFontPadding="false"

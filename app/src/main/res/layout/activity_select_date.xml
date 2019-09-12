@@ -50,6 +50,7 @@
                             android:id="@+id/tv_setting_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="#333333"
                             android:layout_centerVertical="true" android:paddingHorizontal="20dp"/>
                     <ImageView
                             android:id="@+id/btn_select_date_act_disapear"
