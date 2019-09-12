@@ -77,6 +77,10 @@ class DetailedActivity : AppCompatActivity(), OnMapReadyCallback {
             sendLink()
         }
 
+        iv_detailed_act_back_btn.setOnClickListener {
+            finish()
+        }
+
     }
 
     override fun onMapReady(googleMap: GoogleMap?) {

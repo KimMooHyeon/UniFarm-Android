@@ -57,7 +57,7 @@ class SearchActivity : AppCompatActivity() {
         insertSearchHistoryData(searchDB)
 
         setHistoryRecyclerView()
-        setSearchResult()
+        //setSearchResult()
 
         iv_search_act_back_btn.setOnClickListener {
             finish()
@@ -155,7 +155,8 @@ class SearchActivity : AppCompatActivity() {
                             //Log.e("f로그!!! keywordProgram:",temp[i].toString())
                             //Log.e("f로그!!! keywordProgram:",temp[i].toString())
 
-                            str = temp[i].keywordPrograms[0].info + " " + temp[i].keywordPrograms[1].info + " " + temp[i].keywordPrograms[2].info + " " + temp[i].keywordPrograms[3].info + " " + temp[i].keywordPrograms[4].info
+                            str = "#공대 #농협 #농활 #주말 #봉사"
+                            //str = temp[i].keywordPrograms[0].info + " " + temp[i].keywordPrograms[1].info + " " + temp[i].keywordPrograms[2].info + " " + temp[i].keywordPrograms[3].info + " " + temp[i].keywordPrograms[4].info
                             searchResult = SearchResult(temp[i].program.programIdx,temp[i].program.thumbnail, temp[i].program.title, str, false)
                             searchResultData.add(searchResult)
                         }
@@ -219,7 +220,6 @@ class SearchActivity : AppCompatActivity() {
 
         //검색결과 존재X 뷰
         rv_history_search.visibility = View.GONE
-        tv_search_act_no_result.visibility = View.VISIBLE
     }
 
     fun insertSearchHistoryData(searchDB: SQLiteDatabase) {
@@ -237,8 +237,7 @@ class SearchActivity : AppCompatActivity() {
 
         //최근 검색어 없을 경우
         if (cursor.count.equals(0)) {
-            //
-            tv_search_act_no_result.visibility = View.VISIBLE
+
             return
         }
 
